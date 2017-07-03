@@ -15,7 +15,7 @@
 - [x] Détendeur - gaz
 - [x] rallonge
 - [x] rallonge enrouleur
-- [x]Serpette
+- [x] Serpette
 - [x] WD40
 
 ## Location
