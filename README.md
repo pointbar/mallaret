@@ -14,6 +14,7 @@
 * Balayette
 * Allumette - briquet
 * Détendeur - gaz
+* vinaigre blanc
 
 * Débroussailleuse
 * camion
