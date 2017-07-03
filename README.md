@@ -14,15 +14,17 @@
 * Balayette
 * Allumette - briquet
 * Détendeur - gaz
-* vinaigre blanc
 * rallonge
 * rallonge enrouleur
+* Serpette
+* WD40
 
 ## Location
 * Débroussailleuse
 * camion
 
 ## Miam
+* vinaigre blanc
 * Packs d'eau
 * Pain
 * Pince anti-tique
