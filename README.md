@@ -18,6 +18,7 @@
 * rallonge
 * rallonge enrouleur
 
+## Location
 * Débroussailleuse
 * camion
 
