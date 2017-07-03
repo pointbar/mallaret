@@ -15,6 +15,8 @@
 * Allumette - briquet
 * Détendeur - gaz
 * vinaigre blanc
+* rallonge
+* rallonge enrouleur
 
 * Débroussailleuse
 * camion
