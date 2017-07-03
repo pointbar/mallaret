@@ -1,27 +1,26 @@
 # MALLARET
 
 ## Matos
-* Gants plastique
-* Gants
-* Sacs plastiques
-* Liquide vaisselle
-* Javel
-* éponges
-* Lessive saint marc
-* Chiffons
-* Balais
-* Serpillière
-* Balayette
-* Allumette - briquet
-* Détendeur - gaz
-* rallonge
-* rallonge enrouleur
-* Serpette
-* WD40
+- [x] Gants plastique
+- [x] Gants
+- [x] Sacs plastiques
+- [x] Javel
+- [x] éponges
+- [x] Lessive saint marc
+- [x] Chiffons
+- [x] Balais
+- [x] Serpillière
+- [x] Balayette
+- [x] Allumette - briquet
+- [x] Détendeur - gaz
+- [x] rallonge
+- [x] rallonge enrouleur
+- [x]Serpette
+- [x] WD40
 
 ## Location
-* Débroussailleuse
-* camion
+- [] Débroussailleuse
+- [] camion
 
 ## Miam
 * vinaigre blanc
