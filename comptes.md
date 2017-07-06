@@ -8,7 +8,8 @@ Id    | Date  | Payeur    | Titre        | Fournisseur       | Prix   | Réparti
 5     | 05/07 | manu      | nourriture   | Leclerc           | 185,82 | Les présent/e/s
 6     | 05/07 | yannick   | essence      | Leclerc           | 14,02  | Tout le monde
 7     | 05/07 | fred      | camion       | Leclerc           | 9,90   | Tout le monde
-
+8     | 04/07 | pntbr     | bricolage    | Leclerc           | 13,71  | Tout le monde
+9     | 04/07 | pntbr     | Gaz          | Leclerc           | 29,60  | Tout le monde
 
 
 
