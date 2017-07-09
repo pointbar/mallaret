@@ -98,7 +98,8 @@
 
 (def repartitions
   {"Tout le monde" :tous
-   "Les présent/e/s" :presentes})
+   "Les présent/e/s" :presentes
+   "Les gîtants" :gitants})
 
 (def libelles-repartition
   (set/map-invert repartitions))
@@ -172,6 +173,10 @@
   [comptes depense]
   (let [{:keys [date]} depense]
     (repartition-parmi (-> comptes :deplacements :data (presentes date)) depense)))
+
+(defmethod repartition :gitants
+  [comptes depense]
+  (repartition-parmi #{:fred :solenne :manu :xavier :agnes} depense))
 
 (defn update-soldes
   [soldes depense-repartie]
