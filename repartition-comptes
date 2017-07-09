@@ -12,22 +12,23 @@
          '[clojure.set :as set]
          '[clojure.string :as string])
 
-(def remove-titles
-  (partial remove (partial re-find #"^#")))
-
 (def remove-blank
-  (comp
-    (partial filter (comp seq first))
-    (partial partition-by empty?)))
+  (partial remove empty?))
 
-(def assemble-blocks
-  (partial map (partial string/join "\n")))
+(defn assemble-blocks
+  [lines]
+  (->> lines
+       (reduce (fn [state line]
+                 (if-let [[_ title] (re-find #"^#(.*)" line)]
+                   (assoc state :key (string/trim title))
+                   (update-in state [:data (:key state)] #(conj (or % []) line))))
+               nil)
+       :data))
 
 (def split-blocks
   (comp
     assemble-blocks
     remove-blank
-    remove-titles
     line-seq))
 
 (defn read-csv
@@ -133,9 +134,9 @@
 (defn read-comptes
   [f]
   (with-open [rdr (io/reader f)]
-    (let [[depenses deplacements transactions] (->> rdr
-                                                    split-blocks
-                                                    (map parse-table))]
+    (let [blocks (split-blocks rdr)
+          [depenses deplacements transactions] (map #(->> % blocks (string/join "\n") parse-table)
+                                                    ["Dépenses" "Arrivées et départs" "Soldes"])]
       {:depenses (update depenses :data (partial map parse-depense ))
        :deplacements (update deplacements :data (partial map parse-deplacement))
        :transactions (update transactions :data (partial map parse-transaction))})))
