@@ -1,0 +1,350 @@
+#!/usr/bin/env boot -f
+; Ce script utilise http://boot-clj.com/
+
+(set-env! :dependencies '[[clj-time "0.13.0"]
+                          [org.clojure/clojure "1.8.0"]
+                          [org.clojure/data.csv "0.1.4"]])
+
+(require '[clj-time.core :as time]
+         '[clj-time.local :as time-local]
+         '[clojure.data.csv :as csv]
+         '[clojure.java.io :as io]
+         '[clojure.set :as set]
+         '[clojure.string :as string])
+
+(def remove-titles
+  (partial remove (partial re-find #"^#")))
+
+(def remove-blank
+  (comp
+    (partial filter (comp seq first))
+    (partial partition-by empty?)))
+
+(def assemble-blocks
+  (partial map (partial string/join "\n")))
+
+(def split-blocks
+  (comp
+    assemble-blocks
+    remove-blank
+    remove-titles
+    line-seq))
+
+(defn read-csv
+  [rdr]
+  (csv/read-csv rdr :separator \|))
+
+(def trim-cells
+  (partial map (partial map string/trim)))
+
+(def remove-dashes
+  (partial remove (comp (partial re-find #"^-+$") first)))
+
+(defn csv-data->maps
+  [csv-data]
+  (let [header (first csv-data)]
+    {:header header
+     :data (map zipmap
+                (->> header (map keyword) repeat)
+                (rest csv-data))}))
+
+(def parse-table
+  (comp
+    csv-data->maps
+    remove-dashes
+    trim-cells
+    read-csv))
+
+(defn current-year
+  []
+  (-> (time-local/local-now) time/year))
+
+(defn date
+  [day month]
+  (time/local-date (current-year) month day))
+
+(defn parse-date
+  [date-string]
+  (->> date-string
+       (re-find #"0*([1-9][0-9]*)/0*([1-9][0-9]*)")
+       rest
+       (map read-string)
+       (apply date)))
+
+(def parse-personne
+  keyword)
+
+(def sens
+  {"arrivée" :arrivee
+   "départ" :depart})
+
+(def libelles-sens
+  (set/map-invert sens))
+
+(defn parse-deplacement
+  [x]
+  {:date (-> x :Date parse-date)
+   :voyageur (-> x :Voyageur parse-personne)
+   :sens (-> x :Sens sens)})
+
+(defn parse-prix
+  [price-string]
+  (when (seq price-string)
+    (-> price-string
+      (string/split #"[,.]")
+      (->> (string/join "."))
+      bigdec
+      rationalize)))
+
+(def repartitions
+  {"Tout le monde" :tous
+   "Les présent/e/s" :presentes})
+
+(def libelles-repartition
+  (set/map-invert repartitions))
+
+(defn parse-depense
+  [depense]
+  (let [{:keys [Id Date Payeur Titre Fournisseur Prix Répartition]} depense]
+    {:id (read-string Id)
+     :date (parse-date Date)
+     :payeur (parse-personne Payeur)
+     :titre Titre
+     :fournisseur Fournisseur
+     :prix (parse-prix Prix)
+     :repartition (repartitions Répartition)}))
+
+(defn parse-soldes
+  [soldes]
+  (into {}
+    (map (fn [[personne solde]]
+          [(parse-personne personne) (parse-prix solde)])
+         soldes)))
+
+(defn parse-transaction
+  [transaction]
+  {:montant (-> transaction :Montant parse-prix)
+   :transaction (-> transaction :Transaction read-string)
+   :soldes (-> transaction
+               (dissoc :Montant :Transaction)
+               parse-soldes)})
+
+(defn read-comptes
+  [f]
+  (with-open [rdr (io/reader f)]
+    (let [[depenses deplacements transactions] (->> rdr
+                                                    split-blocks
+                                                    (map parse-table))]
+      {:depenses (update depenses :data (partial map parse-depense ))
+       :deplacements (update deplacements :data (partial map parse-deplacement))
+       :transactions (update transactions :data (partial map parse-transaction))})))
+
+(defn participants
+  [transactions]
+  (-> transactions first :soldes keys))
+
+(defmulti repartition (fn [_ depense] (:repartition depense)))
+
+(defn repartition-parmi
+  [personnes depense]
+  (let [{:keys [payeur prix]} depense
+        nb-personnes (count personnes)]
+   (-> (zipmap personnes (repeat (-> prix (/ nb-personnes) -)))
+       (assoc payeur (-> prix (* (dec nb-personnes)) (/ nb-personnes))))))
+
+(defmethod repartition :tous
+  [comptes depense]
+  (repartition-parmi (-> comptes :transactions :data participants) depense))
+
+(defn update-presentes
+  [presents deplacement]
+  ((-> deplacement :sens {:arrivee conj :depart disj}) presents (:voyageur deplacement)))
+
+(defn presentes
+  [deplacements date]
+  (->> deplacements
+       (filter #(or (time/before? (:date %) date)
+       	            (and (time/equal? (:date %) date)
+         	            	 (= (:sens %) :arrivee))))
+       (reduce update-presentes #{})))
+
+(defmethod repartition :presentes
+  [comptes depense]
+  (let [{:keys [date]} depense]
+    (repartition-parmi (-> comptes :deplacements :data (presentes date)) depense)))
+
+(defn update-soldes
+  [soldes depense-repartie]
+  (reduce (fn [soldes [personne depense]] (update soldes personne #(+ % depense))) soldes depense-repartie))
+
+(defn soldes-initiaux
+  [personnes]
+  (zipmap personnes (repeat 0)))
+
+(defn progression-depenses
+  [depenses-reparties soldes-initiaux]
+  (reductions update-soldes soldes-initiaux depenses-reparties))
+
+(defn garde-soldes-modifies
+  [depenses soldes]
+  (select-keys soldes (keys depenses)))
+
+(defn ajoute-id-et-montant
+  [depenses soldes]
+  {:transaction (:id depenses)
+   :montant (:prix depenses)
+   :soldes soldes})
+
+(defn calcule-transactions
+  [comptes]
+  (let [depenses (-> comptes :depenses :data)
+        depenses-reparties (map (partial repartition comptes) depenses)]
+    (->> comptes :transactions :data participants soldes-initiaux
+         (progression-depenses depenses-reparties)
+         rest
+         (map garde-soldes-modifies depenses-reparties)
+         (map ajoute-id-et-montant depenses))))
+
+(defn update-transactions
+  [comptes]
+  (assoc-in comptes [:transactions :data] (calcule-transactions comptes)))
+
+(defn format-date
+  [local-date]
+  (.toString local-date "dd/MM"))
+
+(defn format-prix
+  [prix]
+  (when prix
+    (format "%.2f" (double prix))))
+
+(def format-personne
+  name)
+
+(defn pad
+  [string length transfo]
+  (->> (repeat " ") (concat (transfo string)) (take length) transfo (apply str)))
+
+(defn rpad
+  [string length]
+  (pad string length identity))
+
+(defn lpad
+  [string length]
+  (pad string length reverse))
+
+(defn format-depense
+  [depense]
+  {"Id" (-> depense :id str)
+   "Date" (-> depense :date format-date)
+   "Payeur" (-> depense :payeur format-personne)
+   "Titre" (-> depense :titre)
+   "Fournisseur" (-> depense :fournisseur)
+   "Prix" (->> depense :prix format-prix)
+   "Répartition" (-> depense :repartition libelles-repartition)})
+
+(def padding-depense
+  {"Id" lpad
+   "Date" lpad
+   "Payeur" rpad
+   "Titre" rpad
+   "Fournisseur" rpad
+   "Prix" lpad
+   "Répartition" rpad})
+
+(defn format-deplacement
+  [deplacement]
+  {"Date" (-> deplacement :date format-date)
+   "Voyageur" (-> deplacement :voyageur format-personne)
+   "Sens" (-> deplacement :sens libelles-sens)})
+
+(def padding-deplacement
+  {"Date" lpad
+   "Voyageur" rpad
+   "Sens" rpad})
+
+(defn format-transaction
+  [transaction]
+  (into {"Transaction" (-> transaction :transaction str)
+         "Montant" (-> transaction :montant format-prix)}
+    (->> transaction :soldes (map (fn [[personne solde]] [(format-personne personne)
+                                                          (format-prix solde)])))))
+
+(def padding-transaction
+  (constantly lpad))
+
+(defn format-row
+  [row]
+  (string/join " | " row))
+
+(defn make-row
+  [headers data]-
+  (map #(data %) headers))
+
+(defn rows->columns
+  [table]
+  (apply merge-with conj
+         (zipmap (-> table first keys) (repeat nil))
+         table))
+
+(defn max-length
+  [column]
+  (->> column
+       (map count)
+       (apply max)))
+
+(defn calcule-longueurs
+  [table]
+  (into {} (map (fn [[k v]] [k (max-length v)])) (rows->columns table)))
+
+(defn format-table
+  [headers data]
+  (string/join "\n"
+    (map format-row (map (partial make-row headers) data))))
+
+(defn make-tirets
+  [longueurs]
+  (into {} (map (fn [[k v]] [k (->> (repeat "-") (take v) (apply str))])
+                longueurs)))
+
+(defn pad-row
+  [padders longueurs row]
+  (into {} (map (fn [[k v]] [k ((padders k) (row k) v)])
+                longueurs)))
+
+(defn format-data
+  [data formatter padders]
+  (let [headers (:header data)
+        table (->> data 
+                   :data 
+                   (map formatter)
+                   (concat [(zipmap headers headers)]))
+        longueurs (calcule-longueurs table)
+        table (map (partial pad-row padders longueurs) table)
+        tirets (make-tirets longueurs)
+        table (concat [(first table) tirets] (rest table))]
+    (format-table headers table)))
+
+(defn format-comptes
+  [comptes]
+  (string/join "\n"
+    ["# Dépenses"
+     (format-data (:depenses comptes) format-depense padding-depense)
+     ""
+     "# Arrivées et départs"
+     (format-data (:deplacements comptes) format-deplacement padding-deplacement)
+     ""
+     "# Soldes"
+     (format-data (:transactions comptes) format-transaction padding-transaction)
+     ""]))
+
+(defn update-comptes
+  [filename]
+  (->> filename
+      read-comptes
+      update-transactions
+      format-comptes
+      (spit filename)))
+
+(defn -main [& args]
+  (update-comptes "comptes.md"))
