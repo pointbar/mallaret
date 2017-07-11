@@ -12,24 +12,17 @@
          '[clojure.set :as set]
          '[clojure.string :as string])
 
-(def remove-blank
-  (partial remove empty?))
-
-(defn assemble-blocks
+(defn parse-blocks
   [lines]
-  (->> lines
-       (reduce (fn [state line]
-                 (if-let [[_ title] (re-find #"^#(.*)" line)]
-                   (assoc state :key (string/trim title))
-                   (update-in state [:data (:key state)] #(conj (or % []) line))))
-               nil)
-       :data))
-
-(def split-blocks
-  (comp
-    assemble-blocks
-    remove-blank
-    line-seq))
+  (-> (reduce (fn [state line]
+                (if-let [title (some->> line (re-find #"^#(.*)") second string/trim)]
+                  (-> state
+                      (assoc :key title)
+                      (update :titles #(conj % title)))
+                  (update-in state [:data (:key state)] #(conj (or % []) line))))
+              {:titles []}
+              lines)
+      (dissoc :key)))
 
 (defn read-csv
   [rdr]
@@ -130,16 +123,37 @@
    :soldes (-> transaction
                (dissoc :Montant :Transaction)
                parse-soldes)})
+(def input
+  {:depenses parse-depense
+   :deplacements parse-deplacement
+   :transactions parse-transaction})
+
+(def parse-line
+  {:depenses parse-depense
+   :deplacements parse-deplacement
+   :transactions parse-transaction})
+
+(defn parse-block
+  [key block]
+  (update block :data (partial map (key parse-line))))
+
+(def titres-blocks
+  {"Dépenses" :depenses
+   "Arrivées et départs" :deplacements
+   "Soldes" :transactions})
 
 (defn read-comptes
   [f]
   (with-open [rdr (io/reader f)]
-    (let [blocks (split-blocks rdr)
-          [depenses deplacements transactions] (map #(->> % blocks (string/join "\n") parse-table)
-                                                    ["Dépenses" "Arrivées et départs" "Soldes"])]
-      {:depenses (update depenses :data (partial map parse-depense ))
-       :deplacements (update deplacements :data (partial map parse-deplacement))
-       :transactions (update transactions :data (partial map parse-transaction))})))
+    (let [blocks (-> rdr line-seq parse-blocks)]
+      (reduce (fn [blocks [titre clef]]
+                (assoc blocks clef (->> (get-in blocks [:data titre])
+                                        (remove empty?)
+                                        (string/join "\n")
+                                        parse-table
+                                        (parse-block clef))))
+              blocks
+              titres-blocks))))
 
 (defn participants
   [transactions]
@@ -297,9 +311,9 @@
 
 (defn format-table
   [headers data]
-  (->> (map #(map % headers) data)
-       (map (partial string/join " | "))
-       (string/join "\n")))
+  (-> (map #(->> (map % headers) (string/join " | "))
+           data)
+      (concat [""])))
 
 (defn make-tirets
   [longueurs]
@@ -324,24 +338,42 @@
         table (concat [(first table) tirets] (rest table))]
     (format-table headers table)))
 
+(def output
+  {:depenses {:format format-depense :pad padding-depense}
+   :deplacements {:format format-deplacement :pad padding-deplacement}
+   :transactions {:format format-transaction :pad padding-transaction}})
+
+(defn format-paragraph
+  [comptes key]
+  (let [{:keys [format pad]} (output key)]
+    (format-data (key comptes) format pad)))
+
+(defn update-blocks
+  [comptes]
+  (reduce (fn [comptes [titre clef]]
+            (assoc-in comptes [:data titre] (format-paragraph comptes clef)))
+          comptes
+          titres-blocks))
+
+(defn ensure-ends-with-newline
+  [s]
+  (if (= \newline (get s (-> s count dec)))
+    s
+    (str s "\n")))
+
 (defn format-comptes
   [comptes]
-  (string/join "\n"
-    ["# Dépenses"
-     (format-data (:depenses comptes) format-depense padding-depense)
-     ""
-     "# Arrivées et départs"
-     (format-data (:deplacements comptes) format-deplacement padding-deplacement)
-     ""
-     "# Soldes"
-     (format-data (:transactions comptes) format-transaction padding-transaction)
-     ""]))
+  (->> (:titles comptes)
+       (mapcat (fn [titre] (cons (str "# " titre) (get-in comptes [:data titre]))))
+       (string/join "\n")
+       ensure-ends-with-newline))
 
 (defn update-comptes
   [filename]
   (->> filename
       read-comptes
       update-transactions
+      update-blocks
       format-comptes
       (spit filename)))
 
