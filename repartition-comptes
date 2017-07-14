@@ -325,6 +325,11 @@
   (into {} (map (fn [[k v]] [k ((padders k) (row k) v)])
                 longueurs)))
 
+(defn pad-table
+  [table pad-header pad-data]
+  (cons (-> table first pad-header)
+        (->> table rest (map pad-data))))
+
 (defn format-data
   [data formatter padders]
   (let [headers (:header data)
@@ -333,7 +338,7 @@
                    (map formatter)
                    (concat [(zipmap headers headers)]))
         longueurs (calcule-longueurs table)
-        table (map (partial pad-row padders longueurs) table)
+        table (pad-table table (partial pad-row (constantly rpad) longueurs) (partial pad-row padders longueurs))
         tirets (make-tirets longueurs)
         table (concat [(first table) tirets] (rest table))]
     (format-table headers table)))
