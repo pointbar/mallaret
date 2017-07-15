@@ -1,5 +1,5 @@
 # Dépenses
-Id |  Date | Payeur  | Titre         | Fournisseur                  |   Prix | Répartition    
+Id | Date  | Payeur  | Titre         | Fournisseur                  | Prix   | Répartition    
 -- | ----- | ------- | ------------- | ---------------------------- | ------ | ---------------
  1 | 02/06 | agnes   | acompte gîte  | Revea                        | 180,00 | Les gîtants    
  2 | 06/06 | xavier  | solde gîte    | Revea                        | 362,00 | Les gîtants    
@@ -28,22 +28,13 @@ Id |  Date | Payeur  | Titre         | Fournisseur                  |   Prix | R
 25 | 13/07 | fred    | camion        | Leclerc                      |   4,00 | Tout le monde  
 26 | 13/07 | fred    | essence       | Leclerc                      |  15,00 | Tout le monde  
 27 | 14/07 | agnes   | ménage        | Revea                        |  55,00 | Les gîtants    
-
-
-
-# Arrivées et départs
- Date | Voyageur | Sens   
------ | -------- | -------
-03/07 | pntbr    | arrivée
-03/07 | solenne  | arrivée
-03/07 | manu     | arrivée
-03/07 | fred     | arrivée
-03/07 | yannick  | arrivée
-05/07 | pntbr    | départ 
-06/07 | yannick  | départ 
+28 | 15/07 | christian | nourriture  | Le Pizzaiole                 |  46,40 | Les présent/e/s
+29 | 15/07 | christian | entretien   | Bricomarché                  |  18,80 | Tout le monde
+30 | 15/07 | fred      | camion      | Leclerc                      |  80,00 | Tout le monde
+31 | 15/07 | fred      | essence     | Leclerc                      |   5,01 | Tout le monde
 
 # Soldes
-Transaction | Montant |  pntbr | yannick |    fred | solenne |    manu | xavier |  agnes | christian
+Transaction | Montant | pntbr  | yannick | fred    | solenne | manu    | xavier | agnes  | christian
 ----------- | ------- | ------ | ------- | ------- | ------- | ------- | ------ | ------ | ---------
           1 |  180,00 |        |         |  -36,00 |  -36,00 |  -36,00 | -36,00 | 144,00 |          
           2 |  362,00 |        |         | -108,40 | -108,40 | -108,40 | 253,60 |  71,60 |          
@@ -63,3 +54,26 @@ Transaction | Montant |  pntbr | yannick |    fred | solenne |    manu | xavier 
          16 |  407,70 |  28,82 |   16,76 | -163,36 | -276,67 |  467,00 | 128,82 | -66,18 |   -135,18
          17 |    8,02 |        |         | -158,02 | -279,35 |  464,32 |        |        |          
          18 |    5,38 |  28,15 |   16,08 | -158,69 | -274,64 |  463,65 | 128,15 | -66,85 |   -135,85
+
+# Arrivées et départs
+Date  | Voyageur | Sens   
+----- | -------- | -------
+03/07 | pntbr    | arrivée
+03/07 | solenne  | arrivée
+03/07 | manu     | arrivée
+03/07 | fred     | arrivée
+03/07 | yannick  | arrivée
+05/07 | pntbr    | départ 
+06/07 | yannick  | départ 
+11/07 | xavier   | arrivée
+11/07 | agnes    | arrivée
+14/07 | christian | arrivée
+15/07 | agnes     | départ
+15/07 | xavier    | départ
+
+# Locataires du gîte
+- solenne
+- manu
+- fred
+- xavier
+- agnes
