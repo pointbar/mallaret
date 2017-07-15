@@ -159,6 +159,10 @@
   [transactions]
   (-> transactions first :soldes keys))
 
+(defn renumber-depenses
+  [comptes]
+  (update-in comptes [:depenses :data] #(map (fn [depense id] (assoc depense :id id)) % (->> (range) (drop 1)))))
+
 (defmulti repartition (fn [_ depense] (:repartition depense)))
 
 (defn repartition-parmi
@@ -377,6 +381,7 @@
   [filename]
   (->> filename
       read-comptes
+      renumber-depenses
       update-transactions
       update-blocks
       format-comptes
