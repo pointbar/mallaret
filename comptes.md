@@ -19,6 +19,17 @@ Id |  Date | Payeur  | Titre         | Fournisseur                  |   Prix | R
 16 | 08/07 | manu    | bricolage     | Bricomarché                  | 407,70 | Tout le monde  
 17 | 08/07 | fred    | nourriture    | boulangerie                  |   8,02 | Les présent/e/s
 18 | 08/07 | solenne | entretien     | Intermarché                  |   5,38 | Tout le monde  
+19 | 12/07 | agnes   | taxe séjour   | Revea                        |  23,00 | Les gîtants    
+20 | 12/07 | manu    | bricolage     | Bricomarché                  |  81,23 | Tout le monde  
+21 | 12/07 | solenne | nourriture    | boulangerie                  |   9,00 | Les présent/e/s
+22 | 12/07 | solenne | camion        | Leclerc                      |  80,00 | Tout le monde  
+23 | 12/07 | xavier  | nourriture    | Leclerc                      |  77,00 | Les présent/e/s
+24 | 13/07 | solenne | nourriture    | Au Thiers Bouchon            | 102,00 | Les présent/e/s
+25 | 13/07 | fred    | camion        | Leclerc                      |   4,00 | Tout le monde  
+26 | 13/07 | fred    | essence       | Leclerc                      |  15,00 | Tout le monde  
+27 | 14/07 | agnes   | ménage        | Revea                        |  55,00 | Les gîtants    
+
+
 
 # Arrivées et départs
  Date | Voyageur | Sens   
