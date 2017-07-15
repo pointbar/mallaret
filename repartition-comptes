@@ -98,7 +98,8 @@
 
 (def repartitions
   {"Tout le monde" :tous
-   "Les présent/e/s" :presentes})
+   "Les présent/e/s" :presentes
+   "Les gîtants" :gitants})
 
 (def libelles-repartition
   (set/map-invert repartitions))
@@ -172,6 +173,10 @@
   [comptes depense]
   (let [{:keys [date]} depense]
     (repartition-parmi (-> comptes :deplacements :data (presentes date)) depense)))
+
+(defmethod repartition :gitants
+  [comptes depense]
+  (repartition-parmi #{:fred :solenne :manu :xavier :agnes} depense))
 
 (defn update-soldes
   [soldes depense-repartie]
@@ -273,14 +278,6 @@
 (def padding-transaction
   (constantly lpad))
 
-(defn format-row
-  [row]
-  (string/join " | " row))
-
-(defn make-row
-  [headers data]-
-  (map #(data %) headers))
-
 (defn rows->columns
   [table]
   (apply merge-with conj
@@ -299,8 +296,9 @@
 
 (defn format-table
   [headers data]
-  (string/join "\n"
-    (map format-row (map (partial make-row headers) data))))
+  (->> (map #(map % headers) data)
+       (map (partial string/join " | "))
+       (string/join "\n")))
 
 (defn make-tirets
   [longueurs]
