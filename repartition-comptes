@@ -315,7 +315,7 @@
 
 (defn format-table
   [headers data]
-  (-> (map #(->> (map % headers) (string/join " | "))
+  (-> (map #(->> (map % headers) (string/join " | ") string/trimr)
            data)
       (concat [""])))
 
