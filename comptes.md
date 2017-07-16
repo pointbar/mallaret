@@ -1,72 +1,85 @@
 # Dépenses
-Id | Date  | Payeur  | Titre         | Fournisseur                  | Prix   | Répartition    
--- | ----- | ------- | ------------- | ---------------------------- | ------ | ---------------
- 1 | 02/06 | agnes   | acompte gîte  | Revea                        | 180,00 | Les gîtants    
- 2 | 06/06 | xavier  | solde gîte    | Revea                        | 362,00 | Les gîtants    
- 3 | 03/07 | pntbr   | bricolage     | Mr Bricolage                 | 199,20 | Tout le monde  
- 4 | 03/07 | solenne | pharmacie     | Bonjean Claudette            |  19,04 | Tout le monde  
- 5 | 03/07 | manu    | nourriture    | Intermarché                  | 206,74 | Les présent/e/s
- 6 | 04/07 | fred    | camion        | Leclerc                      | 160,00 | Tout le monde  
- 7 | 04/07 | pntbr   | bricolage     | Leclerc                      |  13,71 | Tout le monde  
- 8 | 04/07 | pntbr   | gaz           | Leclerc                      |  29,60 | Tout le monde  
- 9 | 04/07 | solenne | entretien     | Leclerc                      |   3,25 | Tout le monde  
-10 | 05/07 | manu    | nourriture    | Leclerc                      | 185,82 | Les présent/e/s
-11 | 05/07 | yannick | essence       | Leclerc                      |  14,02 | Tout le monde  
-12 | 05/07 | fred    | camion        | Leclerc                      |   9,90 | Tout le monde  
-13 | 06/07 | yannick | bricolage     | Mr Bricolage                 | 225,00 | Tout le monde  
-14 | 06/07 | solenne | nourriture    | Carrefour Market la Monnerie |  34,30 | Les présent/e/s
-15 | 08/07 | xavier  | taxe location | Revea                        |  13,00 | Les gîtants    
-16 | 08/07 | manu    | bricolage     | Bricomarché                  | 407,70 | Tout le monde  
-17 | 08/07 | fred    | nourriture    | boulangerie                  |   8,02 | Les présent/e/s
-18 | 08/07 | solenne | entretien     | Intermarché                  |   5,38 | Tout le monde  
-19 | 12/07 | agnes   | taxe séjour   | Revea                        |  23,00 | Les gîtants    
-20 | 12/07 | manu    | bricolage     | Bricomarché                  |  81,23 | Tout le monde  
-21 | 12/07 | solenne | nourriture    | boulangerie                  |   9,00 | Les présent/e/s
-22 | 12/07 | solenne | camion        | Leclerc                      |  80,00 | Tout le monde  
-23 | 12/07 | xavier  | nourriture    | Leclerc                      |  77,00 | Les présent/e/s
-24 | 13/07 | solenne | nourriture    | Au Thiers Bouchon            | 102,00 | Les présent/e/s
-25 | 13/07 | fred    | camion        | Leclerc                      |   4,00 | Tout le monde  
-26 | 13/07 | fred    | essence       | Leclerc                      |  15,00 | Tout le monde  
-27 | 14/07 | agnes   | ménage        | Revea                        |  55,00 | Les gîtants    
-28 | 15/07 | christian | nourriture  | Le Pizzaiole                 |  46,40 | Les présent/e/s
-29 | 15/07 | christian | entretien   | Bricomarché                  |  18,80 | Tout le monde
-30 | 15/07 | fred      | camion      | Leclerc                      |  80,00 | Tout le monde
-31 | 15/07 | fred      | essence     | Leclerc                      |   5,01 | Tout le monde
+Id | Date  | Payeur    | Titre         | Fournisseur                  | Prix   | Répartition
+-- | ----- | --------- | ------------- | ---------------------------- | ------ | ---------------
+ 1 | 02/06 | agnes     | acompte gîte  | Revea                        | 180,00 | Les gîtants
+ 2 | 06/06 | xavier    | solde gîte    | Revea                        | 362,00 | Les gîtants
+ 3 | 03/07 | pntbr     | bricolage     | Mr Bricolage                 | 199,20 | Tout le monde
+ 4 | 03/07 | solenne   | pharmacie     | Bonjean Claudette            |  19,04 | Tout le monde
+ 5 | 03/07 | manu      | nourriture    | Intermarché                  | 206,74 | Les présent/e/s
+ 6 | 04/07 | fred      | camion        | Leclerc                      | 160,00 | Tout le monde
+ 7 | 04/07 | pntbr     | bricolage     | Leclerc                      |  13,71 | Tout le monde
+ 8 | 04/07 | pntbr     | gaz           | Leclerc                      |  29,60 | Tout le monde
+ 9 | 04/07 | solenne   | entretien     | Leclerc                      |   3,25 | Tout le monde
+10 | 05/07 | manu      | nourriture    | Leclerc                      | 185,82 | Les présent/e/s
+11 | 05/07 | yannick   | essence       | Leclerc                      |  14,02 | Tout le monde
+12 | 05/07 | fred      | camion        | Leclerc                      |   9,90 | Tout le monde
+13 | 06/07 | yannick   | bricolage     | Mr Bricolage                 | 225,00 | Tout le monde
+14 | 06/07 | solenne   | nourriture    | Carrefour Market la Monnerie |  34,30 | Les présent/e/s
+15 | 08/07 | xavier    | taxe location | Revea                        |  13,00 | Les gîtants
+16 | 08/07 | manu      | bricolage     | Bricomarché                  | 407,70 | Tout le monde
+17 | 08/07 | fred      | nourriture    | boulangerie                  |   8,02 | Les présent/e/s
+18 | 08/07 | solenne   | entretien     | Intermarché                  |   5,38 | Tout le monde
+19 | 12/07 | agnes     | taxe séjour   | Revea                        |  23,00 | Les gîtants
+20 | 12/07 | manu      | bricolage     | Bricomarché                  |  81,23 | Tout le monde
+21 | 12/07 | solenne   | nourriture    | boulangerie                  |   9,00 | Les présent/e/s
+22 | 12/07 | solenne   | camion        | Leclerc                      |  80,00 | Tout le monde
+23 | 12/07 | xavier    | nourriture    | Leclerc                      |  77,00 | Les présent/e/s
+24 | 13/07 | solenne   | nourriture    | Au Thiers Bouchon            | 102,00 | Les présent/e/s
+25 | 13/07 | fred      | camion        | Leclerc                      |   4,00 | Tout le monde
+26 | 13/07 | fred      | essence       | Leclerc                      |  15,00 | Tout le monde
+27 | 14/07 | agnes     | ménage        | Revea                        |  55,00 | Les gîtants
+28 | 15/07 | christian | nourriture    | Le Pizzaiole                 |  46,40 | Les présent/e/s
+29 | 15/07 | christian | entretien     | Bricomarché                  |  18,80 | Tout le monde
+30 | 15/07 | fred      | camion        | Leclerc                      |  80,00 | Tout le monde
+31 | 15/07 | fred      | essence       | Leclerc                      |   5,01 | Tout le monde
 
 # Soldes
-Transaction | Montant | pntbr  | yannick | fred    | solenne | manu    | xavier | agnes  | christian
------------ | ------- | ------ | ------- | ------- | ------- | ------- | ------ | ------ | ---------
-          1 |  180,00 |        |         |  -36,00 |  -36,00 |  -36,00 | -36,00 | 144,00 |          
-          2 |  362,00 |        |         | -108,40 | -108,40 | -108,40 | 253,60 |  71,60 |          
-          3 |  199,20 | 174,30 |  -24,90 | -133,30 | -133,30 | -133,30 | 228,70 |  46,70 |    -24,90
-          4 |   19,04 | 171,92 |  -27,28 | -135,68 | -116,64 | -135,68 | 226,32 |  44,32 |    -27,28
-          5 |  206,74 | 130,57 |  -68,63 | -177,03 | -157,99 |   29,71 |        |        |          
-          6 |  160,00 | 110,57 |  -88,63 |  -37,03 | -177,99 |    9,71 | 206,32 |  24,32 |    -47,28
-          7 |   13,71 | 122,57 |  -90,34 |  -38,74 | -179,70 |    8,00 | 204,61 |  22,61 |    -48,99
-          8 |   29,60 | 148,47 |  -94,04 |  -42,44 | -183,40 |    4,30 | 200,91 |  18,91 |    -52,69
-          9 |    3,25 | 148,06 |  -94,45 |  -42,85 | -180,56 |    3,89 | 200,50 |  18,50 |    -53,10
-         10 |  185,82 | 110,90 | -131,61 |  -80,01 | -217,72 |  152,55 |        |        |          
-         11 |   14,02 | 109,15 | -119,34 |  -81,76 | -219,47 |  150,80 | 198,75 |  16,75 |    -54,85
-         12 |    9,90 | 107,91 | -120,58 |  -73,10 | -220,71 |  149,56 | 197,51 |  15,51 |    -56,09
-         13 |  225,00 |  79,78 |   76,29 | -101,23 | -248,84 |  121,43 | 169,39 | -12,62 |    -84,22
-         14 |   34,30 |        |   67,72 | -109,80 | -223,11 |  112,86 |        |        |          
-         15 |   13,00 |        |         | -112,40 | -225,71 |  110,26 | 179,79 | -15,22 |          
-         16 |  407,70 |  28,82 |   16,76 | -163,36 | -276,67 |  467,00 | 128,82 | -66,18 |   -135,18
-         17 |    8,02 |        |         | -158,02 | -279,35 |  464,32 |        |        |          
-         18 |    5,38 |  28,15 |   16,08 | -158,69 | -274,64 |  463,65 | 128,15 | -66,85 |   -135,85
+Transaction | Montant | pntbr  | yannick | fred    | solenne | manu    | xavier | agnes   | christian
+----------- | ------- | ------ | ------- | ------- | ------- | ------- | ------ | ------- | ---------
+          1 |  180,00 |        |         |  -36,00 |  -36,00 |  -36,00 | -36,00 |  144,00 |
+          2 |  362,00 |        |         | -108,40 | -108,40 | -108,40 | 253,60 |   71,60 |
+          3 |  199,20 | 174,30 |  -24,90 | -133,30 | -133,30 | -133,30 | 228,70 |   46,70 |    -24,90
+          4 |   19,04 | 171,92 |  -27,28 | -135,68 | -116,64 | -135,68 | 226,32 |   44,32 |    -27,28
+          5 |  206,74 | 130,57 |  -68,63 | -177,03 | -157,99 |   29,71 |        |         |
+          6 |  160,00 | 110,57 |  -88,63 |  -37,03 | -177,99 |    9,71 | 206,32 |   24,32 |    -47,28
+          7 |   13,71 | 122,57 |  -90,34 |  -38,74 | -179,70 |    8,00 | 204,61 |   22,61 |    -48,99
+          8 |   29,60 | 148,47 |  -94,04 |  -42,44 | -183,40 |    4,30 | 200,91 |   18,91 |    -52,69
+          9 |    3,25 | 148,06 |  -94,45 |  -42,85 | -180,56 |    3,89 | 200,50 |   18,50 |    -53,10
+         10 |  185,82 | 110,90 | -131,61 |  -80,01 | -217,72 |  152,55 |        |         |
+         11 |   14,02 | 109,15 | -119,34 |  -81,76 | -219,47 |  150,80 | 198,75 |   16,75 |    -54,85
+         12 |    9,90 | 107,91 | -120,58 |  -73,10 | -220,71 |  149,56 | 197,51 |   15,51 |    -56,09
+         13 |  225,00 |  79,78 |   76,29 | -101,23 | -248,84 |  121,43 | 169,39 |  -12,62 |    -84,22
+         14 |   34,30 |        |   67,72 | -109,80 | -223,11 |  112,86 |        |         |
+         15 |   13,00 |        |         | -112,40 | -225,71 |  110,26 | 179,79 |  -15,22 |
+         16 |  407,70 |  28,82 |   16,76 | -163,36 | -276,67 |  467,00 | 128,82 |  -66,18 |   -135,18
+         17 |    8,02 |        |         | -158,02 | -279,35 |  464,32 |        |         |
+         18 |    5,38 |  28,15 |   16,08 | -158,69 | -274,64 |  463,65 | 128,15 |  -66,85 |   -135,85
+         19 |   23,00 |        |         | -163,29 | -279,24 |  459,05 | 123,55 |  -48,45 |
+         20 |   81,23 |  17,99 |    5,93 | -173,44 | -289,39 |  530,13 | 113,40 |  -58,60 |   -146,00
+         21 |    9,00 |        |         | -175,24 | -282,19 |  528,33 | 111,60 |  -60,40 |
+         22 |   80,00 |   7,99 |   -4,07 | -185,24 | -212,19 |  518,33 | 101,60 |  -70,40 |   -156,00
+         23 |   77,00 |        |         | -200,64 | -227,59 |  502,93 | 163,20 |  -85,80 |
+         24 |  102,00 |        |         | -221,04 | -145,99 |  482,53 | 142,80 | -106,20 |
+         25 |    4,00 |   7,49 |   -4,57 | -217,54 | -146,49 |  482,03 | 142,30 | -106,70 |   -156,50
+         26 |   15,00 |   5,62 |   -6,45 | -204,42 | -148,37 |  480,15 | 140,42 | -108,58 |   -158,38
+         27 |   55,00 |        |         | -215,42 | -159,37 |  469,15 | 129,42 |  -64,58 |
+         28 |   46,40 |        |         | -223,15 | -167,10 |  461,42 | 121,69 |  -72,31 |   -119,71
+         29 |   18,80 |   3,27 |   -8,80 | -225,50 | -169,45 |  459,07 | 119,34 |  -74,66 |   -103,26
+         30 |   80,00 |  -6,73 |  -18,80 | -155,50 | -179,45 |  449,07 | 109,34 |  -84,66 |   -113,26
+         31 |    5,01 |  -7,36 |  -19,42 | -151,12 | -180,08 |  448,44 | 108,71 |  -85,29 |   -113,89
 
 # Arrivées et départs
-Date  | Voyageur | Sens   
------ | -------- | -------
-03/07 | pntbr    | arrivée
-03/07 | solenne  | arrivée
-03/07 | manu     | arrivée
-03/07 | fred     | arrivée
-03/07 | yannick  | arrivée
-05/07 | pntbr    | départ 
-06/07 | yannick  | départ 
-11/07 | xavier   | arrivée
-11/07 | agnes    | arrivée
+Date  | Voyageur  | Sens
+----- | --------- | -------
+03/07 | pntbr     | arrivée
+03/07 | solenne   | arrivée
+03/07 | manu      | arrivée
+03/07 | fred      | arrivée
+03/07 | yannick   | arrivée
+05/07 | pntbr     | départ
+06/07 | yannick   | départ
+11/07 | xavier    | arrivée
+11/07 | agnes     | arrivée
 14/07 | christian | arrivée
 15/07 | agnes     | départ
 15/07 | xavier    | départ
