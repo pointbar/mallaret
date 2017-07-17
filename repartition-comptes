@@ -183,9 +183,7 @@
 (defn presentes
   [deplacements date]
   (->> deplacements
-       (filter #(or (time/before? (:date %) date)
-       	            (and (time/equal? (:date %) date)
-         	            	 (= (:sens %) :arrivee))))
+       (filter #(not (time/after? (:date %) date)))
        (reduce update-presentes #{})))
 
 (defmethod repartition :presentes
