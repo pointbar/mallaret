@@ -31,6 +31,12 @@
 (def trim-cells
   (partial map (partial map string/trim)))
 
+(defn trim-table-line
+  [l]
+  (->> l
+    (re-find #"^\s*\|?(.*?)\|?\s*$")
+    second))
+
 (def remove-dashes
   (partial remove (comp (partial re-find #"^-+$") first)))
 
@@ -154,6 +160,7 @@
       (reduce (fn [blocks [titre clef]]
                 (assoc blocks clef (->> (get-in blocks [:data titre])
                                         (remove empty?)
+                                        (map trim-table-line)
                                         (string/join "\n")
                                         parse-table
                                         (parse-block clef))))
@@ -316,9 +323,13 @@
   [table]
   (into {} (map (fn [[k v]] [k (max-length v)])) (rows->columns table)))
 
+(defn bracket-with-pipes
+  [s]
+  (str "| " s " |"))
+
 (defn format-table
   [headers data]
-  (-> (map #(->> (map % headers) (string/join " | ") string/trimr)
+  (-> (map #(->> (map % headers) (string/join " | ") bracket-with-pipes)
            data)
       (concat [""])))
 
