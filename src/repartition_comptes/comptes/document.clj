@@ -84,10 +84,6 @@
                     (dissoc :Montant :Transaction)
                     parse-soldes)})
 
-(defn parse-block
-  [key block]
-  (update block :data (partial map (partial parse-line key))))
-
 (def titres-blocks
   {"Dépenses"            :depenses
    "Arrivées et départs" :deplacements
@@ -96,16 +92,21 @@
 (defn read-comptes
   [f]
   (with-open [rdr (io/reader f)]
-    (let [comptes (-> rdr line-seq document/parse-blocks)]
-      (reduce (fn [comptes [titre clef]]
-                (assoc comptes clef (->> (get-in comptes [:blocks titre])
-                                         (remove empty?)
-                                         (map document/trim-table-line)
-                                         (string/join "\n")
-                                         document/parse-table
-                                         (parse-block clef))))
-              comptes
-              titres-blocks))))
+    (let [comptes (-> rdr line-seq document/parse-blocks)
+          titres (keys titres-blocks)
+          tables (map (fn [titre]
+                        (->> (get-in comptes [:blocks titre])
+                             (remove empty?)
+                             (map document/trim-table-line)
+                             (string/join "\n")
+                             document/parse-table))
+                      titres)
+          clefs (map titres-blocks titres)
+          headers (zipmap clefs (map :header tables))
+          data (zipmap clefs (map #(map (partial parse-line %1) (:data %2)) clefs tables))]
+      (assoc comptes
+        :headers headers
+        :tables data))))
 
 (defn format-date
   [local-date]
@@ -166,8 +167,8 @@
 
 (defn format-block
   [comptes key]
-  (let [{:keys [format pad]} (output-line key)]
-    (document/format-data (key comptes) format pad)))
+  (let [[{:keys [format pad]} header data] (map key [output-line (:headers comptes) (:tables comptes)])]
+    (document/format-data header data format pad)))
 
 (defn update-blocks
   [comptes]

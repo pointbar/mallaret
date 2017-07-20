@@ -7,7 +7,7 @@
 
 (defn renumber-depenses
   [comptes]
-  (update-in comptes [:depenses :data] #(map (fn [depense id] (assoc depense :id id)) % (->> (range) (drop 1)))))
+  (update-in comptes [:tables :depenses] #(map (fn [depense id] (assoc depense :id id)) % (->> (range) (drop 1)))))
 
 (defmulti repartition (fn [_ depense] (:repartition depense)))
 
@@ -20,7 +20,7 @@
 
 (defmethod repartition :tous
   [comptes depense]
-  (repartition-parmi (-> comptes :transactions :data participants) depense))
+  (repartition-parmi (-> comptes :tables :transactions participants) depense))
 
 (defn update-presentes
   [presents deplacement]
@@ -35,7 +35,7 @@
 (defmethod repartition :presentes
   [comptes depense]
   (let [{:keys [date]} depense]
-    (repartition-parmi (-> comptes :deplacements :data (presentes date)) depense)))
+    (repartition-parmi (-> comptes :tables :deplacements (presentes date)) depense)))
 
 (defmethod repartition :gitants
   [comptes depense]
@@ -65,9 +65,9 @@
 
 (defn calcule-transactions
   [comptes]
-  (let [depenses (-> comptes :depenses :data)
+  (let [depenses (-> comptes :tables :depenses)
         depenses-reparties (map (partial repartition comptes) depenses)]
-    (->> comptes :transactions :data participants soldes-initiaux
+    (->> comptes :tables :transactions participants soldes-initiaux
          (progression-depenses depenses-reparties)
          rest
          (map garde-soldes-modifies depenses-reparties)
@@ -75,7 +75,7 @@
 
 (defn update-transactions
   [comptes]
-  (assoc-in comptes [:transactions :data] (calcule-transactions comptes)))
+  (assoc-in comptes [:tables :transactions] (calcule-transactions comptes)))
 
 (def update-comptes
   (comp update-transactions renumber-depenses))

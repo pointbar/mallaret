@@ -108,10 +108,8 @@
         (->> table rest (map pad-data))))
 
 (defn format-data
-  [data formatter padders]
-  (let [headers (:header data)
-        table (->> data
-                   :data
+  [headers data formatter padders]
+  (let [table (->> data
                    (map formatter)
                    (concat [(zipmap headers headers)]))
         longueurs (calcule-longueurs table)
