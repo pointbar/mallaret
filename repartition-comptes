@@ -15,11 +15,11 @@
 
 (defn update-comptes
   [filename]
-  (->> filename
-       document/read-comptes
-       comptes/update-comptes
-       document/write-comptes
-       (spit filename)))
+  (-> filename
+      document/read-comptes
+      (update :tables comptes/update-comptes)
+      document/write-comptes
+      (->> (spit filename))))
 
 (defn -main [& args]
   (update-comptes "comptes.md"))
