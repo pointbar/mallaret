@@ -76,7 +76,7 @@
   [column]
   (->> column
        (map count)
-       (apply max)))
+       (apply max 3)))
 
 (defn calcule-longueurs
   [table]
