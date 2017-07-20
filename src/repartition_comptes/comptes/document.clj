@@ -127,7 +127,7 @@
    "Payeur"      (-> depense :payeur format-personne)
    "Titre"       (-> depense :titre)
    "Fournisseur" (-> depense :fournisseur)
-   "Prix"        (->> depense :prix format-prix)
+   "Prix"        (-> depense :prix format-prix)
    "Répartition" (-> depense :repartition libelles-repartition)})
 
 (def padding-depense
@@ -150,12 +150,16 @@
    "Voyageur" document/rpad
    "Sens"     document/rpad})
 
+(defn format-soldes
+  [soldes]
+  (zipmap (->> soldes keys (map format-personne))
+          (->> soldes vals (map format-prix))))
+
 (defn format-transaction
   [transaction]
   (into {"Transaction" (-> transaction :transaction str)
          "Montant"     (-> transaction :montant format-prix)}
-        (->> transaction :soldes (map (fn [[personne solde]] [(format-personne personne)
-                                                              (format-prix solde)])))))
+        (-> transaction :soldes format-soldes)))
 
 (def padding-transaction
   (constantly document/lpad))
