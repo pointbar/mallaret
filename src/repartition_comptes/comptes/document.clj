@@ -71,10 +71,8 @@
 
 (defn parse-soldes
   [soldes]
-  (into {}
-        (map (fn [[personne solde]]
-               [(parse-personne personne) (parse-prix solde)])
-             soldes)))
+  (zipmap (->> soldes keys (map parse-personne))
+          (->> soldes vals (map parse-prix))))
 
 (defmethod parse-line :transactions
   [_ transaction]
@@ -83,6 +81,16 @@
    :soldes      (-> transaction
                     (dissoc :Montant :Transaction)
                     parse-soldes)})
+
+(defn add-soldes
+  [depenses transactions]
+  (let [soldes (zipmap (map :transaction transactions)
+                       (map :soldes transactions))]
+    (map (fn [depense]
+           (if-let [soldes (-> depense :id soldes)]
+             (assoc depense :soldes soldes)
+             depense))
+         depenses)))
 
 (def titres-blocks
   {"Dépenses"            :depenses
@@ -106,7 +114,8 @@
           data (zipmap clefs (map #(map (partial parse-line %1) (:data %2)) clefs tables))]
       (assoc comptes
         :headers headers
-        :tables data))))
+        :deplacements (:deplacements data)
+        :transactions (add-soldes (:depenses data) (:transactions data))))))
 
 (defn format-date
   [local-date]
@@ -121,14 +130,14 @@
   name)
 
 (defn format-depense
-  [depense]
-  {"Id"          (-> depense :id str)
-   "Date"        (-> depense :date format-date)
-   "Payeur"      (-> depense :payeur format-personne)
-   "Titre"       (-> depense :titre)
-   "Fournisseur" (-> depense :fournisseur)
-   "Prix"        (-> depense :prix format-prix)
-   "Répartition" (-> depense :repartition libelles-repartition)})
+  [transaction]
+  {"Id"          (-> transaction :id str)
+   "Date"        (-> transaction :date format-date)
+   "Payeur"      (-> transaction :payeur format-personne)
+   "Titre"       (-> transaction :titre)
+   "Fournisseur" (-> transaction :fournisseur)
+   "Prix"        (-> transaction :prix format-prix)
+   "Répartition" (-> transaction :repartition libelles-repartition)})
 
 (def padding-depense
   {"Id"          document/lpad
@@ -157,22 +166,22 @@
 
 (defn format-transaction
   [transaction]
-  (into {"Transaction" (-> transaction :transaction str)
-         "Montant"     (-> transaction :montant format-prix)}
+  (into {"Transaction" (-> transaction :id str)
+         "Montant"     (-> transaction :prix format-prix)}
         (-> transaction :soldes format-soldes)))
 
 (def padding-transaction
   (constantly document/lpad))
 
 (def output-line
-  {:depenses     {:format format-depense :pad padding-depense}
-   :deplacements {:format format-deplacement :pad padding-deplacement}
-   :transactions {:format format-transaction :pad padding-transaction}})
+  {:depenses     {:format format-depense :pad padding-depense :source :transactions}
+   :deplacements {:format format-deplacement :pad padding-deplacement  :source :deplacements}
+   :transactions {:format format-transaction :pad padding-transaction  :source :transactions}})
 
 (defn format-block
   [comptes key]
-  (let [[{:keys [format pad]} header data] (map key [output-line (:headers comptes) (:tables comptes)])]
-    (document/format-data header data format pad)))
+  (let [[{:keys [format pad source]} header] (map key [output-line (:headers comptes)])]
+    (document/format-data header (source comptes) format pad)))
 
 (defn update-blocks
   [comptes]

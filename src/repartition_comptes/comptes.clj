@@ -7,7 +7,7 @@
 
 (defn renumber-depenses
   [comptes]
-  (update comptes :depenses #(map (fn [depense id] (assoc depense :id id)) % (->> (range) (drop 1)))))
+  (update comptes :transactions #(map (fn [depense id] (assoc depense :id id)) % (->> (range) (drop 1)))))
 
 (defmulti repartition (fn [_ depense] (:repartition depense)))
 
@@ -57,21 +57,15 @@
   [depenses soldes]
   (select-keys soldes (keys depenses)))
 
-(defn ajoute-id-et-montant
-  [depenses soldes]
-  {:transaction (:id depenses)
-   :montant (:prix depenses)
-   :soldes soldes})
-
 (defn calcule-transactions
   [comptes]
-  (let [depenses (-> comptes :depenses)
+  (let [depenses (-> comptes :transactions)
         depenses-reparties (map (partial repartition comptes) depenses)]
     (->> comptes :transactions participants soldes-initiaux
          (progression-depenses depenses-reparties)
          rest
          (map garde-soldes-modifies depenses-reparties)
-         (map ajoute-id-et-montant depenses))))
+         (map #(assoc %1 :soldes %2) depenses))))
 
 (defn update-transactions
   [comptes]
