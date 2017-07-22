@@ -19,23 +19,24 @@
 |  16 | 08/07 | manu      | bricolage            | Bricomarché                   | 407,70 | Tout le monde   |
 |  17 | 08/07 | fred      | nourriture           | boulangerie                   |   8,02 | Les présent/e/s |
 |  18 | 08/07 | solenne   | entretien            | Intermarché                   |   5,38 | Tout le monde   |
-|  19 | 12/07 | agnes     | taxe séjour          | Revea                         |  23,00 | Les gîtants     |
-|  20 | 12/07 | manu      | bricolage            | Bricomarché                   |  81,23 | Tout le monde   |
-|  21 | 12/07 | solenne   | nourriture           | boulangerie                   |   9,00 | Les présent/e/s |
-|  22 | 12/07 | solenne   | camion               | Leclerc                       |  80,00 | Tout le monde   |
-|  23 | 12/07 | xavier    | nourriture           | Leclerc                       |  77,00 | Les présent/e/s |
-|  24 | 13/07 | solenne   | nourriture           | Au Thiers Bouchon             | 102,00 | Les présent/e/s |
-|  25 | 13/07 | fred      | camion               | Leclerc                       |   4,00 | Tout le monde   |
-|  26 | 13/07 | fred      | essence              | Leclerc                       |  15,00 | Tout le monde   |
-|  27 | 14/07 | agnes     | ménage               | Revea                         |  55,00 | Les gîtants     |
-|  28 | 15/07 | christian | nourriture           | Le Pizzaiole                  |  46,40 | Les présent/e/s |
-|  29 | 15/07 | christian | entretien            | Bricomarché                   |  18,80 | Tout le monde   |
-|  30 | 15/07 | fred      | camion               | Leclerc                       |  80,00 | Tout le monde   |
-|  31 | 15/07 | fred      | essence              | Leclerc                       |   5,01 | Tout le monde   |
-|  32 | 16/07 | christian | barbecue starter kit | Carrefour Market              |  91,39 | Tout le monde   |
-|  33 | 16/07 | christian | nourriture           | boucherie charcuterie st remy |  29,84 | Les présent/e/s |
-|  34 | 16/07 | christian | nourriture           | marché st remy                |   8,30 | Les présent/e/s |
-|  35 | 16/07 | fred      | nourriture           | Carrefour Market              |  14,15 | Les présent/e/s |
+|  19 | 10/07 | fred      | nourriture           | Leclerc                       |  30,61 | Les présent/e/s |
+|  20 | 12/07 | agnes     | taxe séjour          | Revea                         |  23,00 | Les gîtants     |
+|  21 | 12/07 | manu      | bricolage            | Bricomarché                   |  81,23 | Tout le monde   |
+|  22 | 12/07 | solenne   | nourriture           | boulangerie                   |   9,00 | Les présent/e/s |
+|  23 | 12/07 | solenne   | camion               | Leclerc                       |  80,00 | Tout le monde   |
+|  24 | 12/07 | xavier    | nourriture           | Leclerc                       |  77,00 | Les présent/e/s |
+|  25 | 13/07 | solenne   | nourriture           | Au Thiers Bouchon             | 102,00 | Les présent/e/s |
+|  26 | 13/07 | fred      | camion               | Leclerc                       |   4,00 | Tout le monde   |
+|  27 | 13/07 | fred      | essence              | Leclerc                       |  15,00 | Tout le monde   |
+|  28 | 14/07 | agnes     | ménage               | Revea                         |  55,00 | Les gîtants     |
+|  29 | 15/07 | christian | nourriture           | Le Pizzaiole                  |  46,40 | Les présent/e/s |
+|  30 | 15/07 | christian | entretien            | Bricomarché                   |  18,80 | Tout le monde   |
+|  31 | 15/07 | fred      | camion               | Leclerc                       |  80,00 | Tout le monde   |
+|  32 | 15/07 | fred      | essence              | Leclerc                       |   5,01 | Tout le monde   |
+|  33 | 16/07 | christian | barbecue starter kit | Carrefour Market              |  91,39 | Tout le monde   |
+|  34 | 16/07 | christian | nourriture           | boucherie charcuterie st remy |  29,84 | Les présent/e/s |
+|  35 | 16/07 | christian | nourriture           | marché st remy                |   8,30 | Les présent/e/s |
+|  36 | 16/07 | fred      | nourriture           | Carrefour Market              |  14,15 | Les présent/e/s |
 
 # Soldes
 | Transaction | Montant | pntbr  | yannick | fred    | solenne | manu    | xavier | agnes   | christian |
@@ -58,23 +59,24 @@
 |          16 |  407,70 |  65,98 |   16,04 | -175,51 | -288,82 |  454,85 | 128,82 |  -66,18 |   -135,18 |
 |          17 |    8,02 |        |         | -170,17 | -291,50 |  452,17 |        |         |           |
 |          18 |    5,38 |  65,31 |   15,37 | -170,84 | -286,79 |  451,50 | 128,15 |  -66,85 |   -135,85 |
-|          19 |   23,00 |        |         | -175,44 | -291,39 |  446,90 | 123,55 |  -48,45 |           |
-|          20 |   81,23 |  55,16 |    5,21 | -185,59 | -301,54 |  517,98 | 113,40 |  -58,60 |   -146,00 |
-|          21 |    9,00 |        |         | -187,39 | -294,34 |  516,18 | 111,60 |  -60,40 |           |
-|          22 |   80,00 |  45,16 |   -4,79 | -197,39 | -224,34 |  506,18 | 101,60 |  -70,40 |   -156,00 |
-|          23 |   77,00 |        |         | -212,79 | -239,74 |  490,78 | 163,20 |  -85,80 |           |
-|          24 |  102,00 |        |         | -233,19 | -158,14 |  470,38 | 142,80 | -106,20 |           |
-|          25 |    4,00 |  44,66 |   -5,29 | -229,69 | -158,64 |  469,88 | 142,30 | -106,70 |   -156,50 |
-|          26 |   15,00 |  42,78 |   -7,16 | -216,57 | -160,52 |  468,00 | 140,42 | -108,58 |   -158,38 |
-|          27 |   55,00 |        |         | -227,57 | -171,52 |  457,00 | 129,42 |  -64,58 |           |
-|          28 |   46,40 |        |         | -239,17 | -183,12 |  445,40 |        |         |   -123,58 |
-|          29 |   18,80 |  40,43 |   -9,51 | -241,52 | -185,47 |  443,05 | 127,07 |  -66,93 |   -107,13 |
-|          30 |   80,00 |  30,43 |  -19,51 | -171,52 | -195,47 |  433,05 | 117,07 |  -76,93 |   -117,13 |
-|          31 |    5,01 |  29,81 |  -20,14 | -167,13 | -196,09 |  432,43 | 116,45 |  -77,56 |   -117,76 |
-|          32 |   91,39 |  18,38 |  -31,56 | -178,56 | -207,52 |  421,00 | 105,02 |  -88,98 |    -37,79 |
-|          33 |   29,84 |        |         | -186,02 | -214,98 |  413,54 |        |         |    -15,41 |
-|          34 |    8,30 |        |         | -188,09 | -217,05 |  411,47 |        |         |     -9,18 |
-|          35 |   14,15 |        |         | -177,48 | -220,59 |  407,93 |        |         |    -12,72 |
+|          19 |   30,61 |        |         | -150,43 | -296,99 |  441,30 |        |         |           |
+|          20 |   23,00 |        |         | -155,03 | -301,59 |  436,70 | 123,55 |  -48,45 |           |
+|          21 |   81,23 |  55,16 |    5,21 | -165,19 | -311,75 |  507,77 | 113,40 |  -58,60 |   -146,00 |
+|          22 |    9,00 |        |         | -166,99 | -304,55 |  505,97 | 111,60 |  -60,40 |           |
+|          23 |   80,00 |  45,16 |   -4,79 | -176,99 | -234,55 |  495,97 | 101,60 |  -70,40 |   -156,00 |
+|          24 |   77,00 |        |         | -192,39 | -249,95 |  480,57 | 163,20 |  -85,80 |           |
+|          25 |  102,00 |        |         | -212,79 | -168,35 |  460,17 | 142,80 | -106,20 |           |
+|          26 |    4,00 |  44,66 |   -5,29 | -209,29 | -168,85 |  459,67 | 142,30 | -106,70 |   -156,50 |
+|          27 |   15,00 |  42,78 |   -7,16 | -196,16 | -170,72 |  457,80 | 140,42 | -108,58 |   -158,38 |
+|          28 |   55,00 |        |         | -207,16 | -181,72 |  446,80 | 129,42 |  -64,58 |           |
+|          29 |   46,40 |        |         | -218,76 | -193,32 |  435,20 |        |         |   -123,58 |
+|          30 |   18,80 |  40,43 |   -9,51 | -221,11 | -195,67 |  432,85 | 127,07 |  -66,93 |   -107,13 |
+|          31 |   80,00 |  30,43 |  -19,51 | -151,11 | -205,67 |  422,85 | 117,07 |  -76,93 |   -117,13 |
+|          32 |    5,01 |  29,81 |  -20,14 | -146,73 | -206,30 |  422,22 | 116,45 |  -77,56 |   -117,76 |
+|          33 |   91,39 |  18,38 |  -31,56 | -158,15 | -217,72 |  410,80 | 105,02 |  -88,98 |    -37,79 |
+|          34 |   29,84 |        |         | -165,61 | -225,18 |  403,34 |        |         |    -15,41 |
+|          35 |    8,30 |        |         | -167,69 | -227,26 |  401,26 |        |         |     -9,18 |
+|          36 |   14,15 |        |         | -157,07 | -230,79 |  397,73 |        |         |    -12,72 |
 
 # Arrivées et départs
 | Date  | Voyageur  | Sens    |
