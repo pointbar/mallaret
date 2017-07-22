@@ -4,7 +4,7 @@
 
 (defn extract-title
   [line]
-  (some->> line (re-find #"^#(.*)") second string/trim))
+  (some->> line (re-find #"^#([^#].*)") second string/trim))
 
 (defn parse-blocks
   [lines]

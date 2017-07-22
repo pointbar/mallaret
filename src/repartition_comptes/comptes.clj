@@ -1,10 +1,6 @@
 (ns repartition-comptes.comptes
   (:require [clj-time.core :as time]))
 
-(defn participants
-  [transactions]
-  (-> transactions first :soldes keys))
-
 (defn renumber-depenses
   [comptes]
   (update comptes :transactions #(map (fn [depense id] (assoc depense :id id)) % (->> (range) (drop 1)))))
@@ -20,7 +16,7 @@
 
 (defmethod repartition :tous
   [comptes depense]
-  (repartition-parmi (-> comptes :transactions participants) depense))
+  (repartition-parmi (:participants comptes) depense))
 
 (defn update-presentes
   [presents deplacement]
@@ -62,19 +58,36 @@
   (update comptes :transactions (partial map #(assoc % :deltas (repartition comptes %)))))
 
 (defn update-soldes
-  [transactions]
-  (let [deltas (map :deltas transactions)]
-    (->> transactions participants soldes-initiaux
-         (progression-depenses deltas)
-         rest
-         (map garde-soldes-modifies deltas)
-         (map #(assoc %1 :soldes %2) transactions))))
+  [comptes]
+  (update comptes :transactions
+          (fn [transactions]
+            (let [deltas (map :deltas transactions)]
+              (->> comptes :participants soldes-initiaux
+                   (progression-depenses deltas)
+                   rest
+                   (map garde-soldes-modifies deltas)
+                   (map #(assoc %1 :soldes %2) transactions))))))
 
 (defn update-transactions
   [comptes]
   (-> comptes
       update-deltas
-      (update :transactions update-soldes)))
+      update-soldes))
+
+(defn synthese-personne
+  [transactions personne]
+  (->> transactions
+       (map (fn [t] {:date        (:date t)
+                     :titre       (:titre t)
+                     :fournisseur (:fournisseur t)
+                     :delta       (-> t :deltas personne)}))
+       (filter :delta)))
+
+(defn update-syntheses-personnes
+  [comptes]
+  (let [participants (:participants comptes)]
+    (assoc comptes :syntheses (zipmap participants
+                                      (map (partial synthese-personne (:transactions comptes)) participants)))))
 
 (def update-comptes
-  (comp update-transactions renumber-depenses))
+  (comp update-syntheses-personnes update-transactions renumber-depenses))

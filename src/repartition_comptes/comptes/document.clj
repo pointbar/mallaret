@@ -115,7 +115,8 @@
       (assoc comptes
         :headers headers
         :deplacements (:deplacements data)
-        :transactions (add-soldes (:depenses data) (:transactions data))))))
+        :transactions (add-soldes (:depenses data) (:transactions data))
+        :participants (->> data :transactions first :soldes keys)))))
 
 (defn format-date
   [local-date]
@@ -173,10 +174,23 @@
 (def padding-transaction
   (constantly document/lpad))
 
+(defn format-synthese
+  [synthese]
+  {"Date"        (-> synthese :date format-date)
+   "Titre"       (-> synthese :titre)
+   "Fournisseur" (-> synthese :fournisseur)
+   "Delta"       (-> synthese :delta format-prix)})
+
+(def padding-synthese
+  {"Date"        document/lpad
+   "Titre"       document/rpad
+   "Fournisseur" document/rpad
+   "Delta"       document/lpad})
+
 (def output-line
   {:depenses     {:format format-depense :pad padding-depense :source :transactions}
-   :deplacements {:format format-deplacement :pad padding-deplacement  :source :deplacements}
-   :transactions {:format format-transaction :pad padding-transaction  :source :transactions}})
+   :deplacements {:format format-deplacement :pad padding-deplacement :source :deplacements}
+   :transactions {:format format-transaction :pad padding-transaction :source :transactions}})
 
 (defn format-block
   [comptes key]
@@ -190,6 +204,14 @@
           comptes
           titres-blocks))
 
+(defn update-blocks-syntheses
+  [comptes]
+  (assoc-in comptes [:blocks "Synthèses individuelles"]
+            (mapcat (fn [[personne synthese]]
+                      (cons (str "## " (format-personne personne))
+                            (document/format-data ["Date" "Titre" "Fournisseur" "Delta"] synthese format-synthese padding-synthese)))
+                    (:syntheses comptes))))
+
 (defn format-comptes
   [comptes]
   (->> (:titles comptes)
@@ -198,4 +220,4 @@
        document/ensure-ends-with-newline))
 
 (def write-comptes
-  (comp format-comptes update-blocks))
+  (comp format-comptes update-blocks-syntheses update-blocks))

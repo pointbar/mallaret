@@ -100,3 +100,262 @@
 - fred
 - xavier
 - agnes
+
+# Synthèses individuelles
+## fred
+| Date  | Titre                | Fournisseur                   | Delta  |
+| ----- | -------------------- | ----------------------------- | ------ |
+| 02/06 | acompte gîte         | Revea                         | -36,00 |
+| 06/06 | solde gîte           | Revea                         | -72,40 |
+| 03/07 | bricolage            | Mr Bricolage                  | -24,90 |
+| 03/07 | pharmacie            | Bonjean Claudette             |  -2,38 |
+| 03/07 | nourriture           | Intermarché                   | -41,35 |
+| 04/07 | camion               | Leclerc                       | 140,00 |
+| 04/07 | bricolage            | Leclerc                       |  -1,71 |
+| 04/07 | gaz                  | Leclerc                       |  -3,70 |
+| 04/07 | entretien            | Leclerc                       |  -0,41 |
+| 05/07 | nourriture           | Leclerc                       | -46,46 |
+| 05/07 | essence              | Leclerc                       |  -1,75 |
+| 05/07 | camion               | Leclerc                       |   8,66 |
+| 06/07 | bricolage            | Mr Bricolage                  | -28,13 |
+| 06/07 | nourriture           | Carrefour Market la Monnerie  | -11,43 |
+| 08/07 | taxe location        | Revea                         |  -2,60 |
+| 08/07 | bricolage            | Bricomarché                   | -50,96 |
+| 08/07 | nourriture           | boulangerie                   |   5,35 |
+| 08/07 | entretien            | Intermarché                   |  -0,67 |
+| 10/07 | nourriture           | Leclerc                       |  20,41 |
+| 12/07 | taxe séjour          | Revea                         |  -4,60 |
+| 12/07 | bricolage            | Bricomarché                   | -10,15 |
+| 12/07 | nourriture           | boulangerie                   |  -1,80 |
+| 12/07 | camion               | Leclerc                       | -10,00 |
+| 12/07 | nourriture           | Leclerc                       | -15,40 |
+| 13/07 | nourriture           | Au Thiers Bouchon             | -20,40 |
+| 13/07 | camion               | Leclerc                       |   3,50 |
+| 13/07 | essence              | Leclerc                       |  13,13 |
+| 14/07 | ménage               | Revea                         | -11,00 |
+| 15/07 | nourriture           | Le Pizzaiole                  | -11,60 |
+| 15/07 | entretien            | Bricomarché                   |  -2,35 |
+| 15/07 | camion               | Leclerc                       |  70,00 |
+| 15/07 | essence              | Leclerc                       |   4,38 |
+| 16/07 | barbecue starter kit | Carrefour Market              | -11,42 |
+| 16/07 | nourriture           | boucherie charcuterie st remy |  -7,46 |
+| 16/07 | nourriture           | marché st remy                |  -2,08 |
+| 16/07 | nourriture           | Carrefour Market              |  10,61 |
+
+## christian
+| Date  | Titre                | Fournisseur                   | Delta  |
+| ----- | -------------------- | ----------------------------- | ------ |
+| 03/07 | bricolage            | Mr Bricolage                  | -24,90 |
+| 03/07 | pharmacie            | Bonjean Claudette             |  -2,38 |
+| 04/07 | camion               | Leclerc                       | -20,00 |
+| 04/07 | bricolage            | Leclerc                       |  -1,71 |
+| 04/07 | gaz                  | Leclerc                       |  -3,70 |
+| 04/07 | entretien            | Leclerc                       |  -0,41 |
+| 05/07 | essence              | Leclerc                       |  -1,75 |
+| 05/07 | camion               | Leclerc                       |  -1,24 |
+| 06/07 | bricolage            | Mr Bricolage                  | -28,13 |
+| 08/07 | bricolage            | Bricomarché                   | -50,96 |
+| 08/07 | entretien            | Intermarché                   |  -0,67 |
+| 12/07 | bricolage            | Bricomarché                   | -10,15 |
+| 12/07 | camion               | Leclerc                       | -10,00 |
+| 13/07 | camion               | Leclerc                       |  -0,50 |
+| 13/07 | essence              | Leclerc                       |  -1,88 |
+| 15/07 | nourriture           | Le Pizzaiole                  |  34,80 |
+| 15/07 | entretien            | Bricomarché                   |  16,45 |
+| 15/07 | camion               | Leclerc                       | -10,00 |
+| 15/07 | essence              | Leclerc                       |  -0,63 |
+| 16/07 | barbecue starter kit | Carrefour Market              |  79,97 |
+| 16/07 | nourriture           | boucherie charcuterie st remy |  22,38 |
+| 16/07 | nourriture           | marché st remy                |   6,23 |
+| 16/07 | nourriture           | Carrefour Market              |  -3,54 |
+
+## solenne
+| Date  | Titre                | Fournisseur                   | Delta  |
+| ----- | -------------------- | ----------------------------- | ------ |
+| 02/06 | acompte gîte         | Revea                         | -36,00 |
+| 06/06 | solde gîte           | Revea                         | -72,40 |
+| 03/07 | bricolage            | Mr Bricolage                  | -24,90 |
+| 03/07 | pharmacie            | Bonjean Claudette             |  16,66 |
+| 03/07 | nourriture           | Intermarché                   | -41,35 |
+| 04/07 | camion               | Leclerc                       | -20,00 |
+| 04/07 | bricolage            | Leclerc                       |  -1,71 |
+| 04/07 | gaz                  | Leclerc                       |  -3,70 |
+| 04/07 | entretien            | Leclerc                       |   2,84 |
+| 05/07 | nourriture           | Leclerc                       | -46,46 |
+| 05/07 | essence              | Leclerc                       |  -1,75 |
+| 05/07 | camion               | Leclerc                       |  -1,24 |
+| 06/07 | bricolage            | Mr Bricolage                  | -28,13 |
+| 06/07 | nourriture           | Carrefour Market la Monnerie  |  22,87 |
+| 08/07 | taxe location        | Revea                         |  -2,60 |
+| 08/07 | bricolage            | Bricomarché                   | -50,96 |
+| 08/07 | nourriture           | boulangerie                   |  -2,67 |
+| 08/07 | entretien            | Intermarché                   |   4,71 |
+| 10/07 | nourriture           | Leclerc                       | -10,20 |
+| 12/07 | taxe séjour          | Revea                         |  -4,60 |
+| 12/07 | bricolage            | Bricomarché                   | -10,15 |
+| 12/07 | nourriture           | boulangerie                   |   7,20 |
+| 12/07 | camion               | Leclerc                       |  70,00 |
+| 12/07 | nourriture           | Leclerc                       | -15,40 |
+| 13/07 | nourriture           | Au Thiers Bouchon             |  81,60 |
+| 13/07 | camion               | Leclerc                       |  -0,50 |
+| 13/07 | essence              | Leclerc                       |  -1,88 |
+| 14/07 | ménage               | Revea                         | -11,00 |
+| 15/07 | nourriture           | Le Pizzaiole                  | -11,60 |
+| 15/07 | entretien            | Bricomarché                   |  -2,35 |
+| 15/07 | camion               | Leclerc                       | -10,00 |
+| 15/07 | essence              | Leclerc                       |  -0,63 |
+| 16/07 | barbecue starter kit | Carrefour Market              | -11,42 |
+| 16/07 | nourriture           | boucherie charcuterie st remy |  -7,46 |
+| 16/07 | nourriture           | marché st remy                |  -2,08 |
+| 16/07 | nourriture           | Carrefour Market              |  -3,54 |
+
+## agnes
+| Date  | Titre                | Fournisseur       | Delta  |
+| ----- | -------------------- | ----------------- | ------ |
+| 02/06 | acompte gîte         | Revea             | 144,00 |
+| 06/06 | solde gîte           | Revea             | -72,40 |
+| 03/07 | bricolage            | Mr Bricolage      | -24,90 |
+| 03/07 | pharmacie            | Bonjean Claudette |  -2,38 |
+| 04/07 | camion               | Leclerc           | -20,00 |
+| 04/07 | bricolage            | Leclerc           |  -1,71 |
+| 04/07 | gaz                  | Leclerc           |  -3,70 |
+| 04/07 | entretien            | Leclerc           |  -0,41 |
+| 05/07 | essence              | Leclerc           |  -1,75 |
+| 05/07 | camion               | Leclerc           |  -1,24 |
+| 06/07 | bricolage            | Mr Bricolage      | -28,13 |
+| 08/07 | taxe location        | Revea             |  -2,60 |
+| 08/07 | bricolage            | Bricomarché       | -50,96 |
+| 08/07 | entretien            | Intermarché       |  -0,67 |
+| 12/07 | taxe séjour          | Revea             |  18,40 |
+| 12/07 | bricolage            | Bricomarché       | -10,15 |
+| 12/07 | nourriture           | boulangerie       |  -1,80 |
+| 12/07 | camion               | Leclerc           | -10,00 |
+| 12/07 | nourriture           | Leclerc           | -15,40 |
+| 13/07 | nourriture           | Au Thiers Bouchon | -20,40 |
+| 13/07 | camion               | Leclerc           |  -0,50 |
+| 13/07 | essence              | Leclerc           |  -1,88 |
+| 14/07 | ménage               | Revea             |  44,00 |
+| 15/07 | entretien            | Bricomarché       |  -2,35 |
+| 15/07 | camion               | Leclerc           | -10,00 |
+| 15/07 | essence              | Leclerc           |  -0,63 |
+| 16/07 | barbecue starter kit | Carrefour Market  | -11,42 |
+
+## pntbr
+| Date  | Titre                | Fournisseur       | Delta  |
+| ----- | -------------------- | ----------------- | ------ |
+| 03/07 | bricolage            | Mr Bricolage      | 174,30 |
+| 03/07 | pharmacie            | Bonjean Claudette |  -2,38 |
+| 03/07 | nourriture           | Intermarché       | -41,35 |
+| 04/07 | camion               | Leclerc           | -20,00 |
+| 04/07 | bricolage            | Leclerc           |  12,00 |
+| 04/07 | gaz                  | Leclerc           |  25,90 |
+| 04/07 | entretien            | Leclerc           |  -0,41 |
+| 05/07 | essence              | Leclerc           |  -1,75 |
+| 05/07 | camion               | Leclerc           |  -1,24 |
+| 06/07 | bricolage            | Mr Bricolage      | -28,13 |
+| 08/07 | bricolage            | Bricomarché       | -50,96 |
+| 08/07 | entretien            | Intermarché       |  -0,67 |
+| 12/07 | bricolage            | Bricomarché       | -10,15 |
+| 12/07 | camion               | Leclerc           | -10,00 |
+| 13/07 | camion               | Leclerc           |  -0,50 |
+| 13/07 | essence              | Leclerc           |  -1,88 |
+| 15/07 | entretien            | Bricomarché       |  -2,35 |
+| 15/07 | camion               | Leclerc           | -10,00 |
+| 15/07 | essence              | Leclerc           |  -0,63 |
+| 16/07 | barbecue starter kit | Carrefour Market  | -11,42 |
+
+## yannick
+| Date  | Titre                | Fournisseur       | Delta  |
+| ----- | -------------------- | ----------------- | ------ |
+| 03/07 | bricolage            | Mr Bricolage      | -24,90 |
+| 03/07 | pharmacie            | Bonjean Claudette |  -2,38 |
+| 03/07 | nourriture           | Intermarché       | -41,35 |
+| 04/07 | camion               | Leclerc           | -20,00 |
+| 04/07 | bricolage            | Leclerc           |  -1,71 |
+| 04/07 | gaz                  | Leclerc           |  -3,70 |
+| 04/07 | entretien            | Leclerc           |  -0,41 |
+| 05/07 | nourriture           | Leclerc           | -46,46 |
+| 05/07 | essence              | Leclerc           |  12,27 |
+| 05/07 | camion               | Leclerc           |  -1,24 |
+| 06/07 | bricolage            | Mr Bricolage      | 196,88 |
+| 08/07 | bricolage            | Bricomarché       | -50,96 |
+| 08/07 | entretien            | Intermarché       |  -0,67 |
+| 12/07 | bricolage            | Bricomarché       | -10,15 |
+| 12/07 | camion               | Leclerc           | -10,00 |
+| 13/07 | camion               | Leclerc           |  -0,50 |
+| 13/07 | essence              | Leclerc           |  -1,88 |
+| 15/07 | entretien            | Bricomarché       |  -2,35 |
+| 15/07 | camion               | Leclerc           | -10,00 |
+| 15/07 | essence              | Leclerc           |  -0,63 |
+| 16/07 | barbecue starter kit | Carrefour Market  | -11,42 |
+
+## manu
+| Date  | Titre                | Fournisseur                   | Delta  |
+| ----- | -------------------- | ----------------------------- | ------ |
+| 02/06 | acompte gîte         | Revea                         | -36,00 |
+| 06/06 | solde gîte           | Revea                         | -72,40 |
+| 03/07 | bricolage            | Mr Bricolage                  | -24,90 |
+| 03/07 | pharmacie            | Bonjean Claudette             |  -2,38 |
+| 03/07 | nourriture           | Intermarché                   | 165,39 |
+| 04/07 | camion               | Leclerc                       | -20,00 |
+| 04/07 | bricolage            | Leclerc                       |  -1,71 |
+| 04/07 | gaz                  | Leclerc                       |  -3,70 |
+| 04/07 | entretien            | Leclerc                       |  -0,41 |
+| 05/07 | nourriture           | Leclerc                       | 139,37 |
+| 05/07 | essence              | Leclerc                       |  -1,75 |
+| 05/07 | camion               | Leclerc                       |  -1,24 |
+| 06/07 | bricolage            | Mr Bricolage                  | -28,13 |
+| 06/07 | nourriture           | Carrefour Market la Monnerie  | -11,43 |
+| 08/07 | taxe location        | Revea                         |  -2,60 |
+| 08/07 | bricolage            | Bricomarché                   | 356,74 |
+| 08/07 | nourriture           | boulangerie                   |  -2,67 |
+| 08/07 | entretien            | Intermarché                   |  -0,67 |
+| 10/07 | nourriture           | Leclerc                       | -10,20 |
+| 12/07 | taxe séjour          | Revea                         |  -4,60 |
+| 12/07 | bricolage            | Bricomarché                   |  71,08 |
+| 12/07 | nourriture           | boulangerie                   |  -1,80 |
+| 12/07 | camion               | Leclerc                       | -10,00 |
+| 12/07 | nourriture           | Leclerc                       | -15,40 |
+| 13/07 | nourriture           | Au Thiers Bouchon             | -20,40 |
+| 13/07 | camion               | Leclerc                       |  -0,50 |
+| 13/07 | essence              | Leclerc                       |  -1,88 |
+| 14/07 | ménage               | Revea                         | -11,00 |
+| 15/07 | nourriture           | Le Pizzaiole                  | -11,60 |
+| 15/07 | entretien            | Bricomarché                   |  -2,35 |
+| 15/07 | camion               | Leclerc                       | -10,00 |
+| 15/07 | essence              | Leclerc                       |  -0,63 |
+| 16/07 | barbecue starter kit | Carrefour Market              | -11,42 |
+| 16/07 | nourriture           | boucherie charcuterie st remy |  -7,46 |
+| 16/07 | nourriture           | marché st remy                |  -2,08 |
+| 16/07 | nourriture           | Carrefour Market              |  -3,54 |
+
+## xavier
+| Date  | Titre                | Fournisseur       | Delta  |
+| ----- | -------------------- | ----------------- | ------ |
+| 02/06 | acompte gîte         | Revea             | -36,00 |
+| 06/06 | solde gîte           | Revea             | 289,60 |
+| 03/07 | bricolage            | Mr Bricolage      | -24,90 |
+| 03/07 | pharmacie            | Bonjean Claudette |  -2,38 |
+| 04/07 | camion               | Leclerc           | -20,00 |
+| 04/07 | bricolage            | Leclerc           |  -1,71 |
+| 04/07 | gaz                  | Leclerc           |  -3,70 |
+| 04/07 | entretien            | Leclerc           |  -0,41 |
+| 05/07 | essence              | Leclerc           |  -1,75 |
+| 05/07 | camion               | Leclerc           |  -1,24 |
+| 06/07 | bricolage            | Mr Bricolage      | -28,13 |
+| 08/07 | taxe location        | Revea             |  10,40 |
+| 08/07 | bricolage            | Bricomarché       | -50,96 |
+| 08/07 | entretien            | Intermarché       |  -0,67 |
+| 12/07 | taxe séjour          | Revea             |  -4,60 |
+| 12/07 | bricolage            | Bricomarché       | -10,15 |
+| 12/07 | nourriture           | boulangerie       |  -1,80 |
+| 12/07 | camion               | Leclerc           | -10,00 |
+| 12/07 | nourriture           | Leclerc           |  61,60 |
+| 13/07 | nourriture           | Au Thiers Bouchon | -20,40 |
+| 13/07 | camion               | Leclerc           |  -0,50 |
+| 13/07 | essence              | Leclerc           |  -1,88 |
+| 14/07 | ménage               | Revea             | -11,00 |
+| 15/07 | entretien            | Bricomarché       |  -2,35 |
+| 15/07 | camion               | Leclerc           | -10,00 |
+| 15/07 | essence              | Leclerc           |  -0,63 |
+| 16/07 | barbecue starter kit | Carrefour Market  | -11,42 |
