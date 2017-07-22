@@ -41,7 +41,7 @@
   [comptes depense]
   (repartition-parmi #{:fred :solenne :manu :xavier :agnes} depense))
 
-(defn update-soldes
+(defn update-solde
   [soldes depense-repartie]
   (reduce (fn [soldes [personne depense]] (update soldes personne #(+ % depense))) soldes depense-repartie))
 
@@ -51,25 +51,30 @@
 
 (defn progression-depenses
   [depenses-reparties soldes-initiaux]
-  (reductions update-soldes soldes-initiaux depenses-reparties))
+  (reductions update-solde soldes-initiaux depenses-reparties))
 
 (defn garde-soldes-modifies
   [depenses soldes]
   (select-keys soldes (keys depenses)))
 
-(defn calcule-transactions
+(defn update-deltas
   [comptes]
-  (let [depenses (-> comptes :transactions)
-        depenses-reparties (map (partial repartition comptes) depenses)]
-    (->> comptes :transactions participants soldes-initiaux
-         (progression-depenses depenses-reparties)
+  (update comptes :transactions (partial map #(assoc % :deltas (repartition comptes %)))))
+
+(defn update-soldes
+  [transactions]
+  (let [deltas (map :deltas transactions)]
+    (->> transactions participants soldes-initiaux
+         (progression-depenses deltas)
          rest
-         (map garde-soldes-modifies depenses-reparties)
-         (map #(assoc %1 :soldes %2) depenses))))
+         (map garde-soldes-modifies deltas)
+         (map #(assoc %1 :soldes %2) transactions))))
 
 (defn update-transactions
   [comptes]
-  (assoc comptes :transactions (calcule-transactions comptes)))
+  (-> comptes
+      update-deltas
+      (update :transactions update-soldes)))
 
 (def update-comptes
   (comp update-transactions renumber-depenses))
