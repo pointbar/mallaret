@@ -1,46 +1,46 @@
 # Dépenses
-| Id  | Date  | Payeur    | Titre                | Fournisseur                   | Prix   | Répartition     |
-| --- | ----- | --------- | -------------------- | ----------------------------- | ------ | --------------- |
-|   1 | 02/06 | agnes     | acompte gîte         | Revea                         | 180,00 | Les gîtants     |
-|   2 | 06/06 | xavier    | solde gîte           | Revea                         | 362,00 | Les gîtants     |
-|   3 | 03/07 | pntbr     | bricolage            | Mr Bricolage                  | 199,20 | Tout le monde   |
-|   4 | 03/07 | solenne   | pharmacie            | Bonjean Claudette             |  19,04 | Tout le monde   |
-|   5 | 03/07 | manu      | nourriture           | Intermarché                   | 206,74 | Les présent/e/s |
-|   6 | 04/07 | fred      | camion               | Leclerc                       | 160,00 | Tout le monde   |
-|   7 | 04/07 | pntbr     | bricolage            | Leclerc                       |  13,71 | Tout le monde   |
-|   8 | 04/07 | pntbr     | gaz                  | Leclerc                       |  29,60 | Tout le monde   |
-|   9 | 04/07 | solenne   | entretien            | Leclerc                       |   3,25 | Tout le monde   |
-|  10 | 05/07 | manu      | nourriture           | Leclerc                       | 185,82 | Les présent/e/s |
-|  11 | 05/07 | yannick   | essence              | Leclerc                       |  14,02 | Tout le monde   |
-|  12 | 05/07 | fred      | camion               | Leclerc                       |   9,90 | Tout le monde   |
-|  13 | 06/07 | yannick   | bricolage            | Mr Bricolage                  | 225,00 | Tout le monde   |
-|  14 | 06/07 | solenne   | nourriture           | Carrefour Market la Monnerie  |  34,30 | Les présent/e/s |
-|  15 | 08/07 | xavier    | taxe location        | Revea                         |  13,00 | Les gîtants     |
-|  16 | 08/07 | manu      | bricolage            | Bricomarché                   | 407,70 | Tout le monde   |
-|  17 | 08/07 | fred      | nourriture           | boulangerie                   |   8,02 | Les présent/e/s |
-|  18 | 08/07 | solenne   | entretien            | Intermarché                   |   5,38 | Tout le monde   |
-|  19 | 10/07 | fred      | nourriture           | Leclerc                       |  30,61 | Les présent/e/s |
-|  20 | 12/07 | agnes     | taxe séjour          | Revea                         |  23,00 | Les gîtants     |
-|  21 | 12/07 | manu      | bricolage            | Bricomarché                   |  81,23 | Tout le monde   |
-|  22 | 12/07 | solenne   | nourriture           | boulangerie                   |   9,00 | Les présent/e/s |
-|  23 | 12/07 | solenne   | camion               | Leclerc                       |  80,00 | Tout le monde   |
-|  24 | 12/07 | xavier    | nourriture           | Leclerc                       |  77,00 | Les présent/e/s |
-|  25 | 13/07 | solenne   | nourriture           | Au Thiers Bouchon             | 102,00 | Les présent/e/s |
-|  26 | 13/07 | fred      | camion               | Leclerc                       |   4,00 | Tout le monde   |
-|  27 | 13/07 | fred      | essence              | Leclerc                       |  15,00 | Tout le monde   |
-|  28 | 14/07 | agnes     | ménage               | Revea                         |  55,00 | Les gîtants     |
-|  29 | 15/07 | christian | nourriture           | Le Pizzaiole                  |  46,40 | Les présent/e/s |
-|  30 | 15/07 | christian | entretien            | Bricomarché                   |  18,80 | Tout le monde   |
-|  31 | 15/07 | fred      | camion               | Leclerc                       |  80,00 | Tout le monde   |
-|  32 | 15/07 | fred      | essence              | Leclerc                       |   5,01 | Tout le monde   |
-|  33 | 16/07 | christian | barbecue starter kit | Carrefour Market              |  91,39 | Tout le monde   |
-|  34 | 16/07 | christian | nourriture           | boucherie charcuterie st remy |  29,84 | Les présent/e/s |
-|  35 | 16/07 | christian | nourriture           | marché st remy                |   8,30 | Les présent/e/s |
-|  36 | 16/07 | fred      | nourriture           | Carrefour Market              |  14,15 | Les présent/e/s |
+| Id   | Date  | Payeur    | Titre                | Fournisseur                   | Prix   | Répartition     |
+| ---: | ----: | --------- | -------------------- | ----------------------------- | -----: | --------------- |
+|    1 | 02/06 | agnes     | acompte gîte         | Revea                         | 180,00 | Les gîtants     |
+|    2 | 06/06 | xavier    | solde gîte           | Revea                         | 362,00 | Les gîtants     |
+|    3 | 03/07 | pntbr     | bricolage            | Mr Bricolage                  | 199,20 | Tout le monde   |
+|    4 | 03/07 | solenne   | pharmacie            | Bonjean Claudette             |  19,04 | Tout le monde   |
+|    5 | 03/07 | manu      | nourriture           | Intermarché                   | 206,74 | Les présent/e/s |
+|    6 | 04/07 | fred      | camion               | Leclerc                       | 160,00 | Tout le monde   |
+|    7 | 04/07 | pntbr     | bricolage            | Leclerc                       |  13,71 | Tout le monde   |
+|    8 | 04/07 | pntbr     | gaz                  | Leclerc                       |  29,60 | Tout le monde   |
+|    9 | 04/07 | solenne   | entretien            | Leclerc                       |   3,25 | Tout le monde   |
+|   10 | 05/07 | manu      | nourriture           | Leclerc                       | 185,82 | Les présent/e/s |
+|   11 | 05/07 | yannick   | essence              | Leclerc                       |  14,02 | Tout le monde   |
+|   12 | 05/07 | fred      | camion               | Leclerc                       |   9,90 | Tout le monde   |
+|   13 | 06/07 | yannick   | bricolage            | Mr Bricolage                  | 225,00 | Tout le monde   |
+|   14 | 06/07 | solenne   | nourriture           | Carrefour Market la Monnerie  |  34,30 | Les présent/e/s |
+|   15 | 08/07 | xavier    | taxe location        | Revea                         |  13,00 | Les gîtants     |
+|   16 | 08/07 | manu      | bricolage            | Bricomarché                   | 407,70 | Tout le monde   |
+|   17 | 08/07 | fred      | nourriture           | boulangerie                   |   8,02 | Les présent/e/s |
+|   18 | 08/07 | solenne   | entretien            | Intermarché                   |   5,38 | Tout le monde   |
+|   19 | 10/07 | fred      | nourriture           | Leclerc                       |  30,61 | Les présent/e/s |
+|   20 | 12/07 | agnes     | taxe séjour          | Revea                         |  23,00 | Les gîtants     |
+|   21 | 12/07 | manu      | bricolage            | Bricomarché                   |  81,23 | Tout le monde   |
+|   22 | 12/07 | solenne   | nourriture           | boulangerie                   |   9,00 | Les présent/e/s |
+|   23 | 12/07 | solenne   | camion               | Leclerc                       |  80,00 | Tout le monde   |
+|   24 | 12/07 | xavier    | nourriture           | Leclerc                       |  77,00 | Les présent/e/s |
+|   25 | 13/07 | solenne   | nourriture           | Au Thiers Bouchon             | 102,00 | Les présent/e/s |
+|   26 | 13/07 | fred      | camion               | Leclerc                       |   4,00 | Tout le monde   |
+|   27 | 13/07 | fred      | essence              | Leclerc                       |  15,00 | Tout le monde   |
+|   28 | 14/07 | agnes     | ménage               | Revea                         |  55,00 | Les gîtants     |
+|   29 | 15/07 | christian | nourriture           | Le Pizzaiole                  |  46,40 | Les présent/e/s |
+|   30 | 15/07 | christian | entretien            | Bricomarché                   |  18,80 | Tout le monde   |
+|   31 | 15/07 | fred      | camion               | Leclerc                       |  80,00 | Tout le monde   |
+|   32 | 15/07 | fred      | essence              | Leclerc                       |   5,01 | Tout le monde   |
+|   33 | 16/07 | christian | barbecue starter kit | Carrefour Market              |  91,39 | Tout le monde   |
+|   34 | 16/07 | christian | nourriture           | boucherie charcuterie st remy |  29,84 | Les présent/e/s |
+|   35 | 16/07 | christian | nourriture           | marché st remy                |   8,30 | Les présent/e/s |
+|   36 | 16/07 | fred      | nourriture           | Carrefour Market              |  14,15 | Les présent/e/s |
 
 # Soldes
 | Transaction | Montant | pntbr  | yannick | fred    | solenne | manu    | xavier | agnes   | christian |
-| ----------- | ------- | ------ | ------- | ------- | ------- | ------- | ------ | ------- | --------- |
+| ----------: | ------: | -----: | ------: | ------: | ------: | ------: | -----: | ------: | --------: |
 |           1 |  180,00 |        |         |  -36,00 |  -36,00 |  -36,00 | -36,00 |  144,00 |           |
 |           2 |  362,00 |        |         | -108,40 | -108,40 | -108,40 | 253,60 |   71,60 |           |
 |           3 |  199,20 | 174,30 |  -24,90 | -133,30 | -133,30 | -133,30 | 228,70 |   46,70 |    -24,90 |
@@ -80,7 +80,7 @@
 
 # Arrivées et départs
 | Date  | Voyageur  | Sens    |
-| ----- | --------- | ------- |
+| ----: | --------- | ------- |
 | 03/07 | pntbr     | arrivée |
 | 03/07 | solenne   | arrivée |
 | 03/07 | manu      | arrivée |
@@ -104,7 +104,7 @@
 # Synthèses individuelles
 ## fred
 | Date  | Titre                | Fournisseur                   | Delta  |
-| ----- | -------------------- | ----------------------------- | ------ |
+| ----: | -------------------- | ----------------------------- | -----: |
 | 02/06 | acompte gîte         | Revea                         | -36,00 |
 | 06/06 | solde gîte           | Revea                         | -72,40 |
 | 03/07 | bricolage            | Mr Bricolage                  | -24,90 |
@@ -144,7 +144,7 @@
 
 ## christian
 | Date  | Titre                | Fournisseur                   | Delta  |
-| ----- | -------------------- | ----------------------------- | ------ |
+| ----: | -------------------- | ----------------------------- | -----: |
 | 03/07 | bricolage            | Mr Bricolage                  | -24,90 |
 | 03/07 | pharmacie            | Bonjean Claudette             |  -2,38 |
 | 04/07 | camion               | Leclerc                       | -20,00 |
@@ -171,7 +171,7 @@
 
 ## solenne
 | Date  | Titre                | Fournisseur                   | Delta  |
-| ----- | -------------------- | ----------------------------- | ------ |
+| ----: | -------------------- | ----------------------------- | -----: |
 | 02/06 | acompte gîte         | Revea                         | -36,00 |
 | 06/06 | solde gîte           | Revea                         | -72,40 |
 | 03/07 | bricolage            | Mr Bricolage                  | -24,90 |
@@ -211,7 +211,7 @@
 
 ## agnes
 | Date  | Titre                | Fournisseur       | Delta  |
-| ----- | -------------------- | ----------------- | ------ |
+| ----: | -------------------- | ----------------- | -----: |
 | 02/06 | acompte gîte         | Revea             | 144,00 |
 | 06/06 | solde gîte           | Revea             | -72,40 |
 | 03/07 | bricolage            | Mr Bricolage      | -24,90 |
@@ -242,7 +242,7 @@
 
 ## pntbr
 | Date  | Titre                | Fournisseur       | Delta  |
-| ----- | -------------------- | ----------------- | ------ |
+| ----: | -------------------- | ----------------- | -----: |
 | 03/07 | bricolage            | Mr Bricolage      | 174,30 |
 | 03/07 | pharmacie            | Bonjean Claudette |  -2,38 |
 | 03/07 | nourriture           | Intermarché       | -41,35 |
@@ -266,7 +266,7 @@
 
 ## yannick
 | Date  | Titre                | Fournisseur       | Delta  |
-| ----- | -------------------- | ----------------- | ------ |
+| ----: | -------------------- | ----------------- | -----: |
 | 03/07 | bricolage            | Mr Bricolage      | -24,90 |
 | 03/07 | pharmacie            | Bonjean Claudette |  -2,38 |
 | 03/07 | nourriture           | Intermarché       | -41,35 |
@@ -291,7 +291,7 @@
 
 ## manu
 | Date  | Titre                | Fournisseur                   | Delta  |
-| ----- | -------------------- | ----------------------------- | ------ |
+| ----: | -------------------- | ----------------------------- | -----: |
 | 02/06 | acompte gîte         | Revea                         | -36,00 |
 | 06/06 | solde gîte           | Revea                         | -72,40 |
 | 03/07 | bricolage            | Mr Bricolage                  | -24,90 |
@@ -331,7 +331,7 @@
 
 ## xavier
 | Date  | Titre                | Fournisseur       | Delta  |
-| ----- | -------------------- | ----------------- | ------ |
+| ----: | -------------------- | ----------------- | -----: |
 | 02/06 | acompte gîte         | Revea             | -36,00 |
 | 06/06 | solde gîte           | Revea             | 289,60 |
 | 03/07 | bricolage            | Mr Bricolage      | -24,90 |

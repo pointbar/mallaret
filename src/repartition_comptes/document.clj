@@ -32,7 +32,7 @@
        second))
 
 (def remove-dashes
-  (partial remove (comp (partial re-find #"^-+$") first)))
+  (partial remove (comp (partial re-find #"^:?-+:?$") first)))
 
 (defn csv-data->maps
   [csv-data]
@@ -54,17 +54,36 @@
   (when-not (string/blank? s)
     (Integer/parseInt s)))
 
-(defn pad
+(defprotocol Pad
+  (min-length [_])
+  (tirets [_ longueur])
+  (pad [_ string longueur]))
+
+(defn pad-with
   [string length transfo]
   (->> (repeat " ") (concat (transfo string)) (take length) transfo (apply str)))
 
-(defn rpad
-  [string length]
-  (pad string length identity))
+(defn n-tirets
+  [n]
+  (->> (repeat "-") (take n) (apply str)))
 
-(defn lpad
-  [string length]
-  (pad string length reverse))
+(def rpad
+  (reify
+    Pad
+    (min-length [_] 3)
+    (tirets [_ longueur]
+      (n-tirets longueur))
+    (pad [_ string length]
+      (pad-with string length identity))))
+
+(def lpad
+  (reify
+    Pad
+    (min-length [_] 4)
+    (tirets [_ longueur]
+      (-> longueur dec n-tirets (str ":")))
+    (pad [_ string length]
+      (pad-with string length reverse))))
 
 (defn rows->columns
   [table]
@@ -73,14 +92,16 @@
          table))
 
 (defn max-length
-  [column]
+  [column min-length]
   (->> column
        (map count)
-       (apply max 3)))
+       (apply max min-length)))
 
 (defn calcule-longueurs
-  [table]
-  (into {} (map (fn [[k v]] [k (max-length v)])) (rows->columns table)))
+  [padders table]
+  (into {}
+        (map (fn [[k v]] [k (max-length v (min-length (padders k)))]))
+        (rows->columns table)))
 
 (defn bracket-with-pipes
   [s]
@@ -93,14 +114,16 @@
       (concat [""])))
 
 (defn make-tirets
-  [longueurs]
-  (into {} (map (fn [[k v]] [k (->> (repeat "-") (take v) (apply str))])
-                longueurs)))
+  [padders longueurs]
+  (into {}
+        (map (fn [[k v]] [k (tirets (padders k) v)]))
+        longueurs))
 
 (defn pad-row
   [padders longueurs row]
-  (into {} (map (fn [[k v]] [k ((padders k) (row k) v)])
-                longueurs)))
+  (into {}
+        (map (fn [[k v]] [k (pad (padders k) (row k) v)]))
+        longueurs))
 
 (defn pad-table
   [table pad-header pad-data]
@@ -112,9 +135,9 @@
   (let [table (->> data
                    (map formatter)
                    (concat [(zipmap headers headers)]))
-        longueurs (calcule-longueurs table)
+        longueurs (calcule-longueurs padders table)
         table (pad-table table (partial pad-row (constantly rpad) longueurs) (partial pad-row padders longueurs))
-        tirets (make-tirets longueurs)
+        tirets (make-tirets padders longueurs)
         table (concat [(first table) tirets] (rest table))]
     (format-table headers table)))
 
