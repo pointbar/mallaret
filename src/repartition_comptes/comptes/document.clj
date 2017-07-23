@@ -93,9 +93,9 @@
          depenses)))
 
 (def titres-blocks
-  {"Dépenses"            :depenses
-   "Arrivées et départs" :deplacements
-   "Soldes"              :transactions})
+  {"Dépenses"             :depenses
+   "Arrivées et départs"  :deplacements
+   "Évolution des soldes" :transactions})
 
 (defn read-comptes
   [f]
@@ -218,6 +218,14 @@
                             (document/format-data ["Date" "Titre" "Fournisseur" "Delta"] synthese format-synthese padding-synthese)))
                     (:syntheses comptes))))
 
+(defn update-block-soldes
+  [comptes]
+  (assoc-in comptes [:blocks "Soldes"]
+            (document/format-data (->> comptes :participants (map format-personne))
+                                  (-> comptes :transactions last :soldes vector)
+                                  format-soldes
+                                  padding-transaction)))
+
 (defn format-comptes
   [comptes]
   (->> (:titles comptes)
@@ -226,4 +234,4 @@
        document/ensure-ends-with-newline))
 
 (def write-comptes
-  (comp format-comptes update-blocks-syntheses update-blocks))
+  (comp format-comptes update-block-soldes update-blocks-syntheses update-blocks))

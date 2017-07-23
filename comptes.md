@@ -39,6 +39,11 @@
 |   36 | 16/07 | fred      | nourriture           | Carrefour Market              |  14,15 | Les présent/e/s |
 
 # Soldes
+| fred    | christian | solenne | agnes  | pntbr | yannick | manu   | xavier |
+| ------: | --------: | ------: | -----: | ----: | ------: | -----: | -----: |
+| -157,07 |    -12,72 | -230,79 | -88,98 | 18,38 |  -31,56 | 397,73 | 105,02 |
+
+# Évolution des soldes
 | Transaction | Montant | pntbr  | yannick | fred    | solenne | manu    | xavier | agnes   | christian |
 | ----------: | ------: | -----: | ------: | ------: | ------: | ------: | -----: | ------: | --------: |
 |           1 |  180,00 |        |         |  -36,00 |  -36,00 |  -36,00 | -36,00 |  144,00 |           |
