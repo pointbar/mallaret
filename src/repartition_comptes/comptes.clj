@@ -49,10 +49,6 @@
   [depenses-reparties soldes-initiaux]
   (reductions update-solde soldes-initiaux depenses-reparties))
 
-(defn garde-soldes-modifies
-  [depenses soldes]
-  (select-keys soldes (keys depenses)))
-
 (defn update-deltas
   [comptes]
   (update comptes :transactions (partial map #(assoc % :deltas (repartition comptes %)))))
@@ -61,12 +57,10 @@
   [comptes]
   (update comptes :transactions
           (fn [transactions]
-            (let [deltas (map :deltas transactions)]
-              (->> comptes :participants soldes-initiaux
-                   (progression-depenses deltas)
-                   rest
-                   (map garde-soldes-modifies deltas)
-                   (map #(assoc %1 :soldes %2) transactions))))))
+            (->> comptes :participants soldes-initiaux
+                 (progression-depenses (map :deltas transactions))
+                 rest
+                 (map #(assoc %1 :soldes %2) transactions)))))
 
 (defn update-transactions
   [comptes]

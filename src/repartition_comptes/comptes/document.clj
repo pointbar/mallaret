@@ -165,11 +165,17 @@
   (zipmap (->> soldes keys (map format-personne))
           (->> soldes vals (map format-prix))))
 
+(defn garde-soldes-modifies
+  [soldes depenses]
+  (select-keys soldes (keys depenses)))
+
 (defn format-transaction
   [transaction]
   (into {"Transaction" (-> transaction :id str)
          "Montant"     (-> transaction :prix format-prix)}
-        (-> transaction :soldes format-soldes)))
+        (-> transaction :soldes
+            (garde-soldes-modifies (:deltas transaction))
+            format-soldes)))
 
 (def padding-transaction
   (constantly document/lpad))
